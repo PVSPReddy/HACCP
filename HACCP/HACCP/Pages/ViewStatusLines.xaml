@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.ViewStatusLines" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate DeviceInfoTitle}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid>
+					<StackLayout VerticalOptions="Start">
+						<StackLayout IsVisible="{Binding IsWindows}" Style="{StaticResource WindowsTitleStack}">
+							<Label Text="{haccpCtrl:Translate DeviceInfoTitle}" Style="{StaticResource WindowsTitleStyle}" />
+						</StackLayout>
+						<StackLayout>
+							<ScrollView Orientation="Vertical">
+								<StackLayout Padding="20, 15, 20, 20" Orientation="Vertical" VerticalOptions="FillAndExpand">
+									<Image Source="logo.png" />
+									<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0, 50, 0, 0" Spacing="5">
+										<Label Text="{haccpCtrl:Translate DeviceID}" Style="{StaticResource DeviceIdLabelStyle}" />
+										<Label Text="{Binding DeviceId}" Style="{StaticResource DeviceIdStyle}" />
+									</StackLayout>
+									<StackLayout Padding="0, 40, 0, 0" Spacing="20">
+										<Grid>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="45" />
+												<RowDefinition Height="5" />
+												<RowDefinition Height="45" />
+												<RowDefinition Height="100" />
+											</Grid.RowDefinitions>
+											<Grid Grid.Row="0">
+												<haccpCtrl:HACCPEditor IsEnabled="False" />
+												<Grid VerticalOptions="Center" IsVisible="{Binding ShowLines}">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="7" />
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="7" />
+													</Grid.ColumnDefinitions>
+													<Label Grid.Column="1" Text="{Binding Line1}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#c7f8ff" Style="{StaticResource WhiteNormal}" />
+												</Grid>
+											</Grid>
+											<Grid Grid.Row="2">
+												<haccpCtrl:HACCPEditor IsEnabled="False" />
+												<Grid VerticalOptions="Center" IsVisible="{Binding ShowLines}">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="7" />
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="7" />
+													</Grid.ColumnDefinitions>
+													<Label Grid.Column="1" Text="{Binding Line2}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#c7f8ff" Style="{StaticResource WhiteNormal}" />
+												</Grid>
+											</Grid>
+											<!--									<haccpCtrl:HACCPEntry HeightRequest="45" Grid.Row="2" Style="{StaticResource Entry}" Text="" IsEnabled="false" />
+									<StackLayout Grid.Row="2" IsVisible="{Binding ShowLines}" Style="{StaticResource ViewStatusStackStyle}">
+										<Label Text="{Binding Line2}" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#c7f8ff" Style="{StaticResource WhiteNormal}" />
+									</StackLayout>-->
+										</Grid>
+									</StackLayout>
+									<Image Source="cooperlogobig.png" MinimumWidthRequest="189" MinimumHeightRequest="63" HorizontalOptions="Center"/>
+									<Grid Style="{StaticResource WindowsScrollHelpGridStyle}" />
+								</StackLayout>
+							</ScrollView>
+						</StackLayout>
+					</StackLayout>
+					<haccpCtrl:HACCPProgressView IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

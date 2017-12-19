@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.ViewStatus" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate ViewStatus}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<StackLayout Grid.Row="0" IsVisible="{Binding IsWindows}" Style="{StaticResource WindowsTitleStack}">
+					<Label Text="{haccpCtrl:Translate ViewStatus}" Style="{StaticResource WindowsTitleStyle}" />
+				</StackLayout>
+				<ScrollView Grid.Row="1">
+					<StackLayout Orientation="Vertical">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="50" />
+								<RowDefinition Height="1" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="1" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="10" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="10" />
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Padding="7,0,7,0">
+								<Label Text="{haccpCtrl:Translate TotalNoofRecords}" Style="{StaticResource RecordNoLabelStyle}" HorizontalOptions="Start" VerticalOptions="Center" />
+								<Label Text="{Binding TotalRecords}" Style="{StaticResource White16LabelStyle}" HorizontalOptions="End" />
+							</Grid>
+							<!--<haccpCtrl:HACCPShapeView Grid.Row="1" Grid.Column="1" ShapeType="Box" CornerRadius="5" StrokeColor="#CADDE9" />-->
+							<haccpCtrl:HACCPEditor Grid.Row="1" Grid.Column="1" IsEnabled="False" />
+							<Grid Grid.Row="3" Grid.Column="1" VerticalOptions="Start">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="6" />
+									<RowDefinition />
+									<RowDefinition />
+									<RowDefinition Height="4" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Label Grid.Row="1" Grid.Column="0" VerticalOptions="Start" Text="{haccpCtrl:Translate TemperatureRecords}" Style="{StaticResource ChecklistRecordTitleStyle}" TextColor="#C3EFFF" />
+								<Label Grid.Row="2" Grid.Column="0" Text="{Binding TemperatureRecords}" Style="{StaticResource WhiteXXX}" />
+								<Label Grid.Row="1" Grid.Column="1" VerticalOptions="Start" Text="{haccpCtrl:Translate ChecklistRecords}" Style="{StaticResource ChecklistRecordTitleStyle}" TextColor="#C3EFFF" />
+								<Label Grid.Row="2" Grid.Column="1" Text="{Binding ChecklistRecords}" Style="{StaticResource WhiteXXX}" />
+							</Grid>
+							<!--<haccpCtrl:HACCPShapeView Grid.Row="3" Grid.Column="1" ShapeType="Box" CornerRadius="5" StrokeColor="#CADDE9" />-->
+							<haccpCtrl:HACCPEditor Grid.Row="3" Grid.Column="1" IsEnabled="False" />
+							<BoxView Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest=".5" HeightRequest="80" BackgroundColor="#CADDE9" />
+						</Grid>
+						<StackLayout Padding="15,0,15,0" Spacing="10">
+							<StackLayout VerticalOptions="Center" Padding="0,10,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate DeviceID}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding DeviceID}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate LastUpload}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding UploadTime}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate ApplicationVersion}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding AppVerison}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate StoreNameID}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding StoreName}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate SelectedMenuLabel}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding SelectedMenu}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate SelectedChecklistLabel}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding SelectedChecklist}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+							<StackLayout VerticalOptions="Center" Padding="0,0,5,0" Orientation="Vertical" MinimumHeightRequest="60">
+								<Label Text="{haccpCtrl:Translate ProbeDescriptionTitle}" Style="{StaticResource Blue14LabelStyle}" HorizontalOptions="StartAndExpand" />
+								<Label Text="{Binding CustomProbDescription}" Style="{StaticResource White14LabelStyle}" HorizontalOptions="StartAndExpand" />
+							</StackLayout>
+							<Label BackgroundColor="#5b8291" HorizontalOptions="Fill" HeightRequest="1" Text="" />
+						</StackLayout>
+						<Grid Style="{StaticResource WindowsScrollHelpGridStyle}" />
+					</StackLayout>
+				</ScrollView>
+				<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+			</Grid>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

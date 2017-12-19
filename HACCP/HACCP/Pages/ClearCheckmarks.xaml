@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.ClearCheckmarks" xmlns:haccpCtrl="clr-namespace:HACCP;assembly=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate ClearCheckmarks}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout Style="{StaticResource WindowsTitleStack}" Grid.Row="0" IsVisible="{Binding IsWindows}">
+						<Label Text="{haccpCtrl:Translate ClearCheckmarks}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid Grid.Row="1">
+						<StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="40,0,40,0" Spacing="20">
+							<haccpCtrl:HACCPButton x:Name="btnTemperature" IsEnabled="{Binding TemperatureEnabled}" Command="{Binding CheckmarksCommand}" Text="{haccpCtrl:Translate Temperatures}" CommandParameter="Temperature" Style="{StaticResource Button17}" />
+							<haccpCtrl:HACCPButton x:Name="btnCheklist" IsEnabled="{Binding ChecklistEnabled}" Command="{Binding CheckmarksCommand}" CommandParameter="Checklist" Text="{haccpCtrl:Translate Checklists}" Style="{StaticResource Button17}" />
+							<haccpCtrl:HACCPButton x:Name="btnBoth" IsEnabled="{Binding BothEnabled}" Command="{Binding CheckmarksCommand}" Text="{haccpCtrl:Translate Both}" CommandParameter="Both" Style="{StaticResource Button17}" />
+						</StackLayout>
+					</Grid>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

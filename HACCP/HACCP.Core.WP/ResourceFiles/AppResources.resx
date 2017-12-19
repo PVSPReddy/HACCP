@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDirectoryPathoptional" xml:space="preserve">
+    <value>Add Directory Path (optional)</value>
+  </data>
+  <data name="Alltherecordswillbeuploadedandthecheckmarkswillbecleared" xml:space="preserve">
+    <value>All the records will be uploaded and the checkmarks will be cleared.</value>
+  </data>
+  <data name="AnerroroccurredwhileuploadingtherecordsPleasetryagainlater" xml:space="preserve">
+    <value>An error occurred while uploading the records. Please try again later.</value>
+  </data>
+  <data name="AnunexpectederrorhasoccurredWewilllookintoitsoon" xml:space="preserve">
+    <value>An unexpected error has occurred. We will look into it soon.</value>
+  </data>
+  <data name="ApplicationVersion" xml:space="preserve">
+    <value>Application Version</value>
+  </data>
+  <data name="Areyousureyouwanttoexittheapp" xml:space="preserve">
+    <value>Are you sure you want to exit the app?</value>
+  </data>
+  <data name="Areyousureyouwanttologout" xml:space="preserve">
+    <value>Are you sure you want to logout?</value>
+  </data>
+  <data name="AreyousureyouwanttorefreshtheBlue2connection" xml:space="preserve">
+    <value>Are you sure you want to refresh the Blue2 connection?</value>
+  </data>
+  <data name="Areyousureyouwanttoswitchthelanguageofthisappto0" xml:space="preserve">
+    <value>Are you sure you want to switch the language of this app to {0}?</value>
+  </data>
+  <data name="AutoOffInterval" xml:space="preserve">
+    <value>Auto-Off Interval</value>
+  </data>
+  <data name="Blue2" xml:space="preserve">
+    <value>Blue2</value>
+  </data>
+  <data name="Blue2BatteryString" xml:space="preserve">
+    <value>Battery</value>
+  </data>
+  <data name="Blue2Devices" xml:space="preserve">
+    <value>Blue2 Devices</value>
+  </data>
+  <data name="Blue2DevicesLabel" xml:space="preserve">
+    <value>Blue2 Devices</value>
+  </data>
+  <data name="Blue2HighString" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Blue2ID" xml:space="preserve">
+    <value>Blue2 ID: </value>
+  </data>
+  <data name="Blue2LowString" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Blue2Settings" xml:space="preserve">
+    <value>Blue2 Settings</value>
+  </data>
+  <data name="Blue2SleepString" xml:space="preserve">
+    <value>Sleeping</value>
+  </data>
+  <data name="Blue2TurnOnMessage" xml:space="preserve">
+    <value>Turn ON the Blue2 device near you.</value>
+  </data>
+  <data name="Bluetooth" xml:space="preserve">
+    <value>Bluetooth</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="C" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CannotchangetheChecklistasrecordsarependingtobeuploadedTouploadtherecordsselectUploadRecordsundertheWirelessTasksmenu" xml:space="preserve">
+    <value>Cannot change the Checklist as records are pending to be uploaded. To upload the records, select "Upload Records" under the Wireless Tasks menu.</value>
+  </data>
+  <data name="CannotchangetheMenuasrecordsarependingtobeuploadedTouploadtherecordsselectUploadRecordsundertheWirelessTasksmenu" xml:space="preserve">
+    <value>Cannot change the Menu as records are pending to be uploaded. To upload the records, select "Upload Records" under the Wireless Tasks menu.</value>
+  </data>
+  <data name="CategoryReview" xml:space="preserve">
+    <value>Category Review</value>
+  </data>
+  <data name="CelsciustUnit" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="ChecklistRecords" xml:space="preserve">
+    <value>Checklist Records</value>
+  </data>
+  <data name="Checklists" xml:space="preserve">
+    <value>Checklists</value>
+  </data>
+  <data name="ClearCheckmarks" xml:space="preserve">
+    <value>Clear Checkmarks</value>
+  </data>
+  <data name="ConnectBlue2Label" xml:space="preserve">
+    <value>Connect Blue2</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="ConnectionStatusDisconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="ConnectionStatusScanBlue2" xml:space="preserve">
+    <value>Scan for Blue2</value>
+  </data>
+  <data name="ConnectionStatusScanning" xml:space="preserve">
+    <value>Scanning...</value>
+  </data>
+  <data name="ConnectionSuccessful" xml:space="preserve">
+    <value>Connection Successful</value>
+  </data>
+  <data name="ConnectionTimeout" xml:space="preserve">
+    <value>Connection Timeout</value>
+  </data>
+  <data name="CorrectiveAction" xml:space="preserve">
+    <value>Corrective Action</value>
+  </data>
+  <data name="CorrectiveActions" xml:space="preserve">
+    <value>Corrective Actions</value>
+  </data>
+  <data name="DeviceID" xml:space="preserve">
+    <value>Device ID: </value>
+  </data>
+  <data name="DeviceInfoTitle" xml:space="preserve">
+    <value>Device Info</value>
+  </data>
+  <data name="Discard" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="EnableNetworkConnection" xml:space="preserve">
+    <value>Enable Network Connection</value>
+  </data>
+  <data name="EnterCustomProbeDescription" xml:space="preserve">
+    <value>Enter Custom Probe Description</value>
+  </data>
+  <data name="Enternotesabouttheitem" xml:space="preserve">
+    <value>Enter notes about the item</value>
+  </data>
+  <data name="EnterPortoptional" xml:space="preserve">
+    <value>Enter Port (optional)</value>
+  </data>
+  <data name="EnterServerIPAddressorDomainName" xml:space="preserve">
+    <value>Enter Server IP Address or Domain Name.</value>
+  </data>
+  <data name="Enteryourpassword" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="F" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="FahrenheitUnit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FailedtoconnecttotheBlue2devicePleasetryagain" xml:space="preserve">
+    <value>Failed to connect to the Blue2 device. Please try again.</value>
+  </data>
+  <data name="HACCP" xml:space="preserve">
+    <value>HACCP</value>
+  </data>
+  <data name="HACCPManager" xml:space="preserve">
+    <value>HACCP Manager</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>machine translation</comment>
+  </data>
+  <data name="ImovedmyHACCPEnterpriseapplicationtoanewserverKeepmydata" xml:space="preserve">
+    <value>I moved my HACCP Enterprise application to a new server. Keep my data.</value>
+  </data>
+  <data name="InvalidTemperatureAlert" xml:space="preserve">
+    <value>Invalid temperature.</value>
+  </data>
+  <data name="IwanttostartoverwithanewserverErasealldataandresetmyapplicationresetsDeviceIDalso" xml:space="preserve">
+    <value>I want to start over with a new server. Erase all data and reset my application (resets Device ID also).</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="LastUpload" xml:space="preserve">
+    <value>Last Upload</value>
+  </data>
+  <data name="Line1" xml:space="preserve">
+    <value>Line 1</value>
+  </data>
+  <data name="Line2" xml:space="preserve">
+    <value>Line 2</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LostconnectionwiththeBlue2device" xml:space="preserve">
+    <value>Lost connection with the Blue2 device.</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="MeasurementScale" xml:space="preserve">
+    <value>Measurement Scale</value>
+  </data>
+  <data name="MeasurementTiming" xml:space="preserve">
+    <value>Measurement Timing</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Minus" xml:space="preserve">
+    <value>Minus</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoBlue2devicesfound" xml:space="preserve">
+    <value>No Blue2 devices found.</value>
+  </data>
+  <data name="NoCategoriesFound" xml:space="preserve">
+    <value>No Categories Found</value>
+  </data>
+  <data name="NocategoriesfoundPleasetapSelectChangeChecklistintheWirelessTasksMenu" xml:space="preserve">
+    <value>No categories found. Please tap "Select/Change Checklist" in the Wireless Tasks menu.</value>
+  </data>
+  <data name="NoChecklistsFound" xml:space="preserve">
+    <value>No Checklists Found</value>
+  </data>
+  <data name="Nochecklistsfoundintheserver" xml:space="preserve">
+    <value>No checklists found in the server.</value>
+  </data>
+  <data name="Nocorrectiveactionsfound" xml:space="preserve">
+    <value>No corrective actions found.</value>
+  </data>
+  <data name="Noitemsfound" xml:space="preserve">
+    <value>No items found.</value>
+  </data>
+  <data name="Noitemsfoundtoreview" xml:space="preserve">
+    <value>No items found to review.</value>
+  </data>
+  <data name="NoLocationsFound" xml:space="preserve">
+    <value>No Locations Found</value>
+  </data>
+  <data name="NolocationsfoundPleasetapSelectChangeMenuintheWirelessTasksMenu" xml:space="preserve">
+    <value>No locations found. Please tap "Select/Change Menu" in the Wireless Tasks menu.</value>
+  </data>
+  <data name="Nolocationsmatchyoursearch" xml:space="preserve">
+    <value>No locations match your search.</value>
+  </data>
+  <data name="NoMenusFound" xml:space="preserve">
+    <value>No Menus Found</value>
+  </data>
+  <data name="Nomenusfoundintheserver" xml:space="preserve">
+    <value>No menus found in the server.</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Noquestionsfound" xml:space="preserve">
+    <value>No questions found.</value>
+  </data>
+  <data name="Noquestionsfoundtoreview" xml:space="preserve">
+    <value>No questions found to review.</value>
+  </data>
+  <data name="Norecordsfoundtoupload" xml:space="preserve">
+    <value>No records found to upload.</value>
+  </data>
+  <data name="NoSiteInformationFound" xml:space="preserve">
+    <value>No Site Information Found</value>
+  </data>
+  <data name="NositeinformationsfoundPleasetapUpdateSiteandSettingsintheWirelessTasksmenu" xml:space="preserve">
+    <value>No site informations found. Please tap Update Site and Settings in the Wireless Tasks menu.</value>
+  </data>
+  <data name="NotesLabel" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotifyManager" xml:space="preserve">
+    <value>Notify Manager</value>
+  </data>
+  <data name="NotImplemented" xml:space="preserve">
+    <value>Not Implemented.</value>
+  </data>
+  <data name="NoUsersFound" xml:space="preserve">
+    <value>No Users Found</value>
+  </data>
+  <data name="NousersfoundPleasetapUpdateUserListintheWirelessTasksmenu" xml:space="preserve">
+    <value>No users found. Please tap Update User List in the Wireless Tasks menu.</value>
+  </data>
+  <data name="NoWebService" xml:space="preserve">
+    <value>No Web Service</value>
+  </data>
+  <data name="Numericvalue" xml:space="preserve">
+    <value>Numeric value</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OopsIstillneedtouploadmydatatotheoldserver" xml:space="preserve">
+    <value>Oops! I still need to upload my data to the old server.</value>
+  </data>
+  <data name="PasswordincorrectPleasetryagain" xml:space="preserve">
+    <value>Password incorrect. Please try again.</value>
+  </data>
+  <data name="PendingCheckmarksMessage" xml:space="preserve">
+    <value>Some records are pending upload. Do you want to upload them to server?</value>
+  </data>
+  <data name="PerformChecklist" xml:space="preserve">
+    <value>Perform Checklist</value>
+  </data>
+  <data name="Plus" xml:space="preserve">
+    <value>Plus</value>
+  </data>
+  <data name="ProbeDescriptionTitle" xml:space="preserve">
+    <value>Custom Probe Description</value>
+  </data>
+  <data name="Rechill" xml:space="preserve">
+    <value>Rechill</value>
+  </data>
+  <data name="RecordAnswer" xml:space="preserve">
+    <value>Record Answer</value>
+  </data>
+  <data name="RecordedAnswer01CorrectiveActiontaken2" xml:space="preserve">
+    <value>Recorded Answer: {0} {1}Corrective Action Taken: {2}</value>
+  </data>
+  <data name="Recordedby" xml:space="preserve">
+    <value>Recorded by</value>
+  </data>
+  <data name="RecordedTemperature" xml:space="preserve">
+    <value>Recorded Temperature</value>
+  </data>
+  <data name="RecordedTemperature0Correctiveactiontaken1User2" xml:space="preserve">
+    <value>Recorded Temperature: {0}Corrective Action Taken: {1}User: {2}</value>
+  </data>
+  <data name="RecordItem" xml:space="preserve">
+    <value>Record Item</value>
+  </data>
+  <data name="RecordItemSavePreview" xml:space="preserve">
+    <value>Record Item Save Preview</value>
+  </data>
+  <data name="RecordSavedToast" xml:space="preserve">
+    <value>Record Saved</value>
+  </data>
+  <data name="RefreshConnection" xml:space="preserve">
+    <value>Refresh Connection</value>
+  </data>
+  <data name="Reheatto165F" xml:space="preserve">
+    <value>Reheat to 165F</value>
+  </data>
+  <data name="ReviewChecklist" xml:space="preserve">
+    <value>Review Checklist</value>
+  </data>
+  <data name="ReviewItem" xml:space="preserve">
+    <value>Review Item</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveandContinue" xml:space="preserve">
+    <value>Save and Continue</value>
+  </data>
+  <data name="SavedNAastheAnswerfortheQuestion" xml:space="preserve">
+    <value>Save N/A as the answer for the question?</value>
+  </data>
+  <data name="SavedNAasthetemperaturerecordingfortheitem" xml:space="preserve">
+    <value>Save N/A as the temperature recording for the item?</value>
+  </data>
+  <data name="SaveRecord" xml:space="preserve">
+    <value>Save Record</value>
+  </data>
+  <data name="SearchingforBlue2device" xml:space="preserve">
+    <value>Searching for Blue2 device...</value>
+  </data>
+  <data name="Searchingfordevice" xml:space="preserve">
+    <value>Searching for device...</value>
+  </data>
+  <data name="SearchLocation" xml:space="preserve">
+    <value>Search Location</value>
+  </data>
+  <data name="sec" xml:space="preserve">
+    <value>sec</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Select Category</value>
+  </data>
+  <data name="SelectChangeChecklist" xml:space="preserve">
+    <value>Select/Change Checklist</value>
+  </data>
+  <data name="SelectChangeMenu" xml:space="preserve">
+    <value>Select/Change Menu</value>
+  </data>
+  <data name="SelectChecklist" xml:space="preserve">
+    <value>Select Checklist</value>
+  </data>
+  <data name="SelectedChecklistLabel" xml:space="preserve">
+    <value>Selected Checklist</value>
+  </data>
+  <data name="SelectedMenuLabel" xml:space="preserve">
+    <value>Selected Menu</value>
+  </data>
+  <data name="SelectItem" xml:space="preserve">
+    <value>Select Item</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="SelectLocation" xml:space="preserve">
+    <value>Select Location</value>
+  </data>
+  <data name="SelectMenu" xml:space="preserve">
+    <value>Select Menu</value>
+  </data>
+  <data name="SelectQuestion" xml:space="preserve">
+    <value>Select Question</value>
+  </data>
+  <data name="SelectUser" xml:space="preserve">
+    <value>Select User</value>
+  </data>
+  <data name="ServerIPAddressorDomainName" xml:space="preserve">
+    <value>Server IP Address or Domain Name</value>
+  </data>
+  <data name="ServerSettings" xml:space="preserve">
+    <value>Server Settings</value>
+  </data>
+  <data name="ServerSettingsupdatedsuccessfully" xml:space="preserve">
+    <value>Server Settings updated successfully.</value>
+  </data>
+  <data name="SiteandSettingsupdatedsuccessfully" xml:space="preserve">
+    <value>Site and Settings updated successfully.</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="SleepTime" xml:space="preserve">
+    <value>Sleep Time</value>
+  </data>
+  <data name="Specifyanumericvalue" xml:space="preserve">
+    <value>Specify a numeric value.</value>
+  </data>
+  <data name="Specifyavalidanswer" xml:space="preserve">
+    <value>Specify a valid answer.</value>
+  </data>
+  <data name="Specifyavalidtemperaturevalue" xml:space="preserve">
+    <value>Specify a valid temperature value.</value>
+  </data>
+  <data name="SpecifyCorrectiveAction" xml:space="preserve">
+    <value>Specify Corrective Action.</value>
+  </data>
+  <data name="SpecifyTemperature" xml:space="preserve">
+    <value>Specify Temperature.</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="StoreNameID" xml:space="preserve">
+    <value>Store Name/ID</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="TemperatureRecords" xml:space="preserve">
+    <value>Temperature Records</value>
+  </data>
+  <data name="TemperatureReview" xml:space="preserve">
+    <value>Temperature Review</value>
+  </data>
+  <data name="Temperatures" xml:space="preserve">
+    <value>Temperatures</value>
+  </data>
+  <data name="TestServerConnectionandWebService" xml:space="preserve">
+    <value>Test Server Connection and Web Service</value>
+  </data>
+  <data name="TheapplicationandDeviceIDwillbereset" xml:space="preserve">
+    <value>The application and Device ID will be reset.</value>
+  </data>
+  <data name="Thechecklisthasbeenaddedsuccessfully" xml:space="preserve">
+    <value>The checklist has been added successfully.</value>
+  </data>
+  <data name="Thecheckmarkshavebeenclearedsuccessfully" xml:space="preserve">
+    <value>The checkmarks have been cleared successfully.</value>
+  </data>
+  <data name="ThecheckmarksofalltheChecklistswillbecleared" xml:space="preserve">
+    <value>The checkmarks of all the Checklists will be cleared.</value>
+  </data>
+  <data name="ThecheckmarksofalltheTemperaturesandChecklistswillbecleared" xml:space="preserve">
+    <value>The checkmarks of all the Temperatures and Checklists will be cleared.</value>
+  </data>
+  <data name="ThecheckmarksofalltheTemperatureswillbecleared" xml:space="preserve">
+    <value>The checkmarks of all the Temperatures will be cleared.</value>
+  </data>
+  <data name="Theconnectionwiththeserverandthewebservicehasbeenestablishedsuccessfully" xml:space="preserve">
+    <value>The connection with the server and the web service has been established successfully.</value>
+  </data>
+  <data name="TheHACCPManagerapplicationhasbeentemporarilydisabledonthisdevicePleasecontacttheapplicationadministrator" xml:space="preserve">
+    <value>The HACCP Manager application has been temporarily disabled on this device. Please contact the application administrator.</value>
+  </data>
+  <data name="Themenuhasbeenupdatedsuccessfully" xml:space="preserve">
+    <value>The menu has been updated successfully.</value>
+  </data>
+  <data name="ThermometerMode" xml:space="preserve">
+    <value>Thermometer Mode</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout</value>
+  </data>
+  <data name="TimeoutNoBlue2devicesdetectedPleasetryagainlater" xml:space="preserve">
+    <value>Timeout! No Blue2 devices detected. Please try again later.</value>
+  </data>
+  <data name="TotalNoofRecords" xml:space="preserve">
+    <value>Total No. of Records</value>
+  </data>
+  <data name="TurnONBluetoothonyourdevice" xml:space="preserve">
+    <value>Turn ON Bluetooth on your device.</value>
+  </data>
+  <data name="UnabletoconnecttotheserverPleaseverifyconnectionsettingsandtryagain" xml:space="preserve">
+    <value>Unable to connect to the server. Please verify connection settings and try again.</value>
+  </data>
+  <data name="UnabletofindthewebservicePleaseverifyconnectionsettingsandtryagain" xml:space="preserve">
+    <value>Unable to find the web service. Please verify connection settings and try again.</value>
+  </data>
+  <data name="UpdatedtheBlue2settingssuccessfully" xml:space="preserve">
+    <value>Updated the Blue2 settings successfully.</value>
+  </data>
+  <data name="UpdateSiteandSettings" xml:space="preserve">
+    <value>Update Site and Settings</value>
+  </data>
+  <data name="UpdateUserList" xml:space="preserve">
+    <value>Update User List</value>
+  </data>
+  <data name="UploadedallthechecklistrecordstoHACCPEnterpriseapplicationsuccessfullybutunabletouploadtemperaturerecords" xml:space="preserve">
+    <value>Uploaded all the checklist records to HACCP Enterprise application successfully, but unable to upload temperature records.</value>
+  </data>
+  <data name="UploadedalltherecordstoHACCPEnterpriseapplicationsuccessfully" xml:space="preserve">
+    <value>Uploaded all the records to HACCP Enterprise application successfully.</value>
+  </data>
+  <data name="UploadedallthetemperaturerecordstoHACCPEnterpriseapplicationsuccessfullybutunabletouploadchecklistrecords" xml:space="preserve">
+    <value>Uploaded all the temperature records to HACCP Enterprise  application successfully, but unable to upload checklist records.</value>
+  </data>
+  <data name="Uploadingdatafromyourcurrentservertoadifferentservermayresultinerrorandorcorruptrecords" xml:space="preserve">
+    <value>Uploading data from your current server to a different server may result in error and/or corrupt records.</value>
+  </data>
+  <data name="UploadRecords" xml:space="preserve">
+    <value>Upload Records</value>
+  </data>
+  <data name="UploadRecordsPendingOnUpdateSiteSettingsMessage" xml:space="preserve">
+    <value>Cannot update Site Settings as records are pending to be uploaded. To upload the records, select “Upload Records” menu.</value>
+  </data>
+  <data name="UploadRecordsPendingOnUpdateUsersMessage" xml:space="preserve">
+    <value>Cannot update Users as records are pending to be uploaded. To upload the records, select “Upload Records” menu.</value>
+  </data>
+  <data name="UserListupdatedsuccessfully" xml:space="preserve">
+    <value>User List updated successfully.</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="ViewStatus" xml:space="preserve">
+    <value>View Status</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="WarningUploadingdatafromyourcurrentservertoadifferentservermayresultinerrorsandorcorruptrecords" xml:space="preserve">
+    <value>Warning: Uploading data from your current server to a different server may result in errors and/or corrupt records.</value>
+  </data>
+  <data name="WirelessTasks" xml:space="preserve">
+    <value>Wireless Tasks</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YoudonothavepermissiontoenterthetemperaturemanuallyPleasecontacttheApplicationAdministrator" xml:space="preserve">
+    <value>You do not have permission to enter the temperature manually. Please contact the Application Administrator.</value>
+  </data>
+  <data name="YourequireanactiveInternetconnectiontoperformsomefunctionsWerecommendthatyouenableWiFiforthispurposeDatachargesmayapplyifWiFiisnotenabled" xml:space="preserve">
+    <value>You require an active Internet connection to perform some functions. We recommend that you enable Wi-Fi for this purpose. Data charges may apply if Wi-Fi is not enabled.</value>
+  </data>
+  <data name="SearchItem" xml:space="preserve">
+    <value>Search Item</value>
+  </data>
+  <data name="Connecting" xml:space="preserve">
+    <value>Connecting...</value>
+  </data>
+  <data name="AndroidrequiresLocationpermissionforBluetoothLEscanning" xml:space="preserve">
+    <value>Android requires "Location" permission for Bluetooth LE scanning.</value>
+  </data>
+  <data name="CannotscanforBlue2withoutLocationpermission" xml:space="preserve">
+    <value>Cannot scan for Blue2 without "Location" permission.</value>
+  </data>
+  <data name="NotifEyeUrl" xml:space="preserve">
+    <value>Enter NotifEYE Url</value>
+  </data>
+  <data name="NotifEYEUserName" xml:space="preserve">
+    <value>NotifEYE Username</value>
+  </data>
+  <data name="NotifEyeUserPassword" xml:space="preserve">
+    <value>NotifyEYE Password</value>
+  </data>
+</root>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{AEF99839-C31A-4DB0-9D57-53095D8B1B6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HACCP</RootNamespace>
+    <AssemblyName>HACCP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Controls\HACCPHomePageButton.cs" />
+    <Compile Include="Controls\HACCPNextPrevButton.cs" />
+    <Compile Include="Controls\HACCPPasswordEntry.cs" />
+    <Compile Include="Controls\HACCPSwitch.cs" />
+    <Compile Include="Controls\HACCPWindowsProbeEntry.cs" />
+    <Compile Include="Converters\NotConverter.cs" />
+    <Compile Include="HACCP.cs" />
+    <Compile Include="Pages\ServerSettings.xaml.cs">
+      <DependentUpon>ServerSettings.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\WirelessTask.xaml.cs">
+      <DependentUpon>WirelessTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pages\SelectUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\SelectUser.xaml.cs">
+      <DependentUpon>SelectUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Styles.cs" />
+    <Compile Include="Controls\HACCPButton.cs" />
+    <Compile Include="Controls\HACCPEntry.cs" />
+    <Compile Include="Pages\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseLayout.cs" />
+    <Compile Include="Pages\BaseView.cs" />
+    <Compile Include="Behaviors\MaxLengthValidator.cs" />
+    <Compile Include="Behaviors\RequiredValidator.cs" />
+    <Compile Include="Controls\HACCPLineSpacingLabel.cs" />
+    <EmbeddedResource Include="Pages\RecordItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\RecordItem.xaml.cs">
+      <DependentUpon>RecordItem.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\PerformCheckList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\PerformCheckList.xaml.cs">
+      <DependentUpon>PerformCheckList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HACCPShapeView.cs" />
+    <Compile Include="Converters\RecordStatusToImageNameConverter.cs" />
+    <EmbeddedResource Include="Pages\SelectQuestion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\SelectQuestion.xaml.cs">
+      <DependentUpon>SelectQuestion.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\SelectLocations.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\SelectLocations.xaml.cs">
+      <DependentUpon>SelectLocations.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\RecordAnswer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\RecordAnswer.xaml.cs">
+      <DependentUpon>RecordAnswer.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\SelectLocationItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\SelectLocationItem.xaml.cs">
+      <DependentUpon>SelectLocationItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HACCPSearch.cs" />
+    <EmbeddedResource Include="Pages\RecordItemComplete.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\RecordItemComplete.xaml.cs">
+      <DependentUpon>RecordItemComplete.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\ServerSettingsConfirmation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\ServerSettingsConfirmation.xaml.cs">
+      <DependentUpon>ServerSettingsConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HACCPTemperatureEntry.cs" />
+    <Compile Include="Controls\HACCPEditor.cs" />
+    <EmbeddedResource Include="Pages\Blue2Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\Blue2Settings.xaml.cs">
+      <DependentUpon>Blue2Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HACCPEditorBorder.cs" />
+    <EmbeddedResource Include="Pages\MenuChecklist.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\MenuChecklist.xaml.cs">
+      <DependentUpon>MenuChecklist.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\ThermometerMode.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\ThermometerMode.xaml.cs">
+      <DependentUpon>ThermometerMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TranslateExtension.cs" />
+    <EmbeddedResource Include="Pages\ViewStatus.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\ViewStatus.xaml.cs">
+      <DependentUpon>ViewStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HACCPFrame.cs" />
+    <Compile Include="Converters\LoginStatusConverters.cs" />
+    <Compile Include="Converters\AddButtonEnableToImageConverter.cs" />
+    <Compile Include="Converters\MinusButtonEnableToImageConverter.cs" />
+    <EmbeddedResource Include="Pages\ClearCheckmarks.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\ClearCheckmarks.xaml.cs">
+      <DependentUpon>ClearCheckmarks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\RadioButtonStatusConverter.cs" />
+    <Compile Include="Converters\SelectedCellColorConverter.cs" />
+    <Compile Include="Converters\UserStatusConvertor.cs" />
+    <Compile Include="Controls\HACCPProgressBar.cs" />
+    <EmbeddedResource Include="Controls\HACCPProgressView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Controls\HACCPProgressView.xaml.cs">
+      <DependentUpon>HACCPProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\RestrictDecimalDigits.cs" />
+    <Compile Include="Converters\EmptyStringConverter.cs" />
+    <Compile Include="Converters\GuidConverter.cs" />
+    <Compile Include="Converters\BatteryLevelConverter.cs" />
+    <EmbeddedResource Include="Controls\HACCPBlue2DeviceListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Controls\HACCPBlue2DeviceListView.xaml.cs">
+      <DependentUpon>HACCPBlue2DeviceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\EditorMaxLengthValidator.cs" />
+    <EmbeddedResource Include="Pages\TemperatureReview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\TemperatureReview.xaml.cs">
+      <DependentUpon>TemperatureReview.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\CategoryReview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\CategoryReview.xaml.cs">
+      <DependentUpon>CategoryReview.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\ViewStatusLines.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Pages\ViewStatusLines.xaml.cs">
+      <DependentUpon>ViewStatusLines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\FontSizeconverter.cs" />
+    <Compile Include="Controls\HACCPDefaultButton.cs" />
+    <Compile Include="Controls\ExtendedButton.cs" />
+    <Compile Include="Controls\Extensions\BindableObjectExtensions.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.4.6392\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PluginsHelp\ConnectivityReadme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ServerSettings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Home.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\WirelessTask.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HACCP.Core.WP\HACCP.Core.WP.csproj">
+      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Name>HACCP.Core.WP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HACCP.Core\HACCP.Core.csproj">
+      <Project>{2927A711-3DEC-432F-B07F-3B2CFC886076}</Project>
+      <Name>HACCP.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="None" ResourceNamePolicy="MSBuild" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+</Project>

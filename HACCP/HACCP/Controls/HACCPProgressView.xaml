@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.HACCPProgressView" xmlns:haccpCtrl="clr-namespace: HACCP;assemply=HACCP">
+	<ContentView.Content>
+		<AbsoluteLayout>
+			<!--   <ContentView
+                         BackgroundColor="#222222" Opacity="0.5"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         IsVisible="{Binding IsLoading}">
+            </ContentView>
+            <Frame AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Black" 
+	
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">                
+                               <StackLayout VerticalOptions="Center">
+             	<ActivityIndicator x:Name="Indicator" Color="Yellow"     
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+                <BoxView HeightRequest="5" />
+                <Label x:Name="loadingLabel" Text="{haccpCtrl:Translate Loading}" TextColor="Yellow"  IsVisible="{Binding IsBusy}" />
+                </StackLayout>
+            </Frame>
+
+        </AbsoluteLayout>
+	</ContentView.Content>
+</ContentView>-->
+			<ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" IsVisible="{Binding IsProgressVisible}">
+			</ContentView>
+			<Grid x:Name="contentgrid" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Black" Padding="15,15,15,15" WidthRequest="95" IsVisible="{Binding IsProgressVisible}" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+				
+				<StackLayout VerticalOptions="Center">
+					<ActivityIndicator x:Name="Indicator" Color="Yellow" IsRunning="true" />
+					<BoxView HeightRequest="5" />
+					<Label x:Name="loadingLabel" Text="{haccpCtrl:Translate Loading}" TextColor="Yellow" IsVisible="{Binding IsProgressVisible}" HorizontalOptions="Center" FontSize="14">
+					</Label>
+				</StackLayout>
+			</Grid>
+		</AbsoluteLayout>
+	</ContentView.Content>
+</ContentView>

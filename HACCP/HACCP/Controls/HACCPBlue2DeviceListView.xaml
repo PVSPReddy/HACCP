@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HACCP.HACCPBlue2DeviceListView" xmlns:haccpCtrl="clr-namespace:HACCP;assemply=HACCP">
+    <ContentView.Content>
+        <AbsoluteLayout>
+            <ContentView BackgroundColor="#222222" Opacity="0.5" AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" />
+            <Grid BackgroundColor="Black" Opacity="0.3" />
+            <Grid Padding="15,0,15,0" VerticalOptions="Center" HorizontalOptions="Center"
+                  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <Frame x:Name="frame" HeightRequest="210" BackgroundColor="White">
+                    <StackLayout>
+                        <Label HorizontalOptions="Center" Text="{haccpCtrl:Translate Blue2Devices}"
+                               Style="{StaticResource AlertTitleStyle}" />
+                        <Grid Padding="10,8,10,0">
+                            <ListView x:Name="devicelist" SeparatorColor="#cfe0eb" IsGroupingEnabled="False">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0" Text="{Binding Name}"
+                                                       Style="{StaticResource PopupOptionTextStyle}"
+                                                       VerticalOptions="Center" />
+                                                <Label Grid.Row="1" Text="{Binding DeviceGUID}"
+                                                       Style="{StaticResource PopupOptionSubTextStyle}"
+                                                       VerticalOptions="Center" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                        <Button Text="{haccpCtrl:Translate Skip}" Style="{StaticResource AlertButtonStyle}"
+                                Clicked="Skip_Button_Click" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

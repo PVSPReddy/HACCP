@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.ServerSettingsConfirmation" xmlns:haccpCtrl="clr-namespace:HACCP;assembly=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate ServerSettings}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Resources>
+		<ResourceDictionary>
+			<haccpCtrl:RadioButtonStatusConverter x:Key="radioButtonStatusConverter" />
+		</ResourceDictionary>
+	</haccpCtrl:BaseView.Resources>
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid>
+					<StackLayout VerticalOptions="Start">
+						<StackLayout Style="{StaticResource WindowsTitleStack}" IsVisible="{Binding IsWindows}">
+							<Label Text="{haccpCtrl:Translate ServerSettings}" Style="{StaticResource WindowsTitleStyle}" />
+						</StackLayout>
+						<StackLayout>
+							<ScrollView Orientation="Vertical">
+								<StackLayout Padding="25, 20, 25, 20" Orientation="Vertical" VerticalOptions="FillAndExpand">
+									<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
+										<Label Text="{haccpCtrl:Translate DeviceID}" Style="{StaticResource DeviceIdLabelStyle}" />
+										<Label Text="{Binding DeviceId}" Style="{StaticResource DeviceIdStyle}" />
+									</StackLayout>
+									<!--<StackLayout Padding="0,10,0,0"  Orientation="Horizontal" HorizontalOptions="Center">-->
+									<Grid Padding="0,10,0,0" ColumnSpacing="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Label TextColor="#fddb00" Text="{haccpCtrl:Translate WarningUploadingdatafromyourcurrentservertoadifferentservermayresultinerrorsandorcorruptrecords}" LineBreakMode="WordWrap" Style="{StaticResource ItemLabelStyle}" />
+									</Grid>
+									<!--</StackLayout>-->
+									<StackLayout Padding="0, 10, 0, 0">
+										<Grid RowSpacing="15">
+											<Grid.RowDefinitions>
+												<RowDefinition Height="Auto" />
+												<RowDefinition Height="Auto" />
+												<RowDefinition Height="Auto" />
+												<RowDefinition Height="70" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="40" />
+												<ColumnDefinition Width="*" />
+											</Grid.ColumnDefinitions>
+											<Image Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="{Binding ServerResetOption, Converter={StaticResource radioButtonStatusConverter}, ConverterParameter=1}" VerticalOptions="Center" />
+											<haccpCtrl:HACCPHomePageButton Grid.Row="0" Grid.Column="0" RemoveBorderOnClick="True" HorizontalOptions="Start" BackgroundColor="Transparent" Command="{Binding SettingsOptionCommand}" CommandParameter="1" />
+											<Label Text="{haccpCtrl:Translate ImovedmyHACCPEnterpriseapplicationtoanewserverKeepmydata}" Style="{StaticResource ItemLabelStyle}" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" XAlign="Start" VerticalOptions="Center" />
+											<Image Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" Source="{Binding ServerResetOption, Converter={StaticResource radioButtonStatusConverter}, ConverterParameter=2}" VerticalOptions="Center" />
+											<haccpCtrl:HACCPHomePageButton Grid.Row="1" Grid.Column="0" RemoveBorderOnClick="True" HorizontalOptions="Start" BackgroundColor="Transparent" Command="{Binding SettingsOptionCommand}" CommandParameter="2" />
+											<Label Text="{haccpCtrl:Translate OopsIstillneedtouploadmydatatotheoldserver}" Style="{StaticResource ItemLabelStyle}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" XAlign="Start" VerticalOptions="Center" />
+											<Image HorizontalOptions="Start" Grid.Row="2" Grid.Column="0" HeightRequest="25" WidthRequest="25" Source="{Binding ServerResetOption, Converter={StaticResource radioButtonStatusConverter}, ConverterParameter=3}" VerticalOptions="Center" />
+											<haccpCtrl:HACCPHomePageButton Grid.Row="2" Grid.Column="0" RemoveBorderOnClick="True" HorizontalOptions="Start" BackgroundColor="Transparent" Command="{Binding SettingsOptionCommand}" CommandParameter="3" />
+											<Label Text="{haccpCtrl:Translate IwanttostartoverwithanewserverErasealldataandresetmyapplicationresetsDeviceIDalso}" Grid.Column="1" Grid.Row="2" Style="{StaticResource ItemLabelStyle}" HorizontalOptions="Start" XAlign="Start" VerticalOptions="Center" />
+											<haccpCtrl:HACCPButton Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="End" Text="{haccpCtrl:Translate Save}" Command="{Binding SaveCommand}" />
+										</Grid>
+									</StackLayout>
+								</StackLayout>
+							</ScrollView>
+						</StackLayout>
+					</StackLayout>
+					<haccpCtrl:HACCPProgressView IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

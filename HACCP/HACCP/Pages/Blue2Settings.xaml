@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" x:Class="HACCP.Blue2Settings" BackgroundImage="bg.png"
+          BackgroundColor="#306577" Title="{haccpCtrl:Translate Blue2Settings}" IsBusy="{Binding IsBusy}">
+    <haccpCtrl:BaseView.Content>
+        <haccpCtrl:BaseLayout>
+            <haccpCtrl:BaseLayout.Content>
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Style="{StaticResource WindowsTitleStack}" Grid.Row="0"
+                                 IsVisible="{Binding IsWindows}">
+                        <Label Text="{haccpCtrl:Translate Blue2Settings}" Style="{StaticResource WindowsTitleStyle}" />
+                    </StackLayout>
+
+
+                    <ScrollView Grid.Row="1">
+                        <Grid>
+                            <Grid RowSpacing="0" ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="55" />
+                                    <RowDefinition Height="54" />
+                                    <RowDefinition Height="54" />
+                                    <RowDefinition Height="54" />
+                                    <RowDefinition Height="54" />
+                                    <RowDefinition Height="12" />
+                                    <RowDefinition Height="75" />
+                                    <RowDefinition Height="46" />
+                                    <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="13" />
+                                    <ColumnDefinition Width="1.3*" />
+                                    <ColumnDefinition Width="3" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="13" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Padding="0,10,0,0">
+                                    <Button x:Name="Connection_Button" Text="{Binding ConnectionStatus}"
+                                            Command="{Binding Blue2Command}" Style="{Binding Blue2ButtonStyle}"
+                                            IsVisible="False" />
+
+                                </Grid>
+                                <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center"
+                                       LineBreakMode="TailTruncation" Text="{haccpCtrl:Translate MeasurementScale}"
+                                       Style="{StaticResource White14LabelStyle}" />
+                                <Grid Grid.Row="1" Grid.Column="3" HorizontalOptions="End">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="42" />
+                                        <ColumnDefinition Width="42" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" VerticalOptions="Center" HeightRequest="30" WidthRequest="42">
+                                        <Image Source="{Binding CelciusButtonBackground}" Aspect="Fill" />
+                                        <Label Text="{haccpCtrl:Translate CelsciustUnit}"
+                                               TextColor="{Binding CelciusButtonForegroundColor}"
+                                               Style="{StaticResource TempScaleLabelStyle}" WidthRequest="35" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       Command="{Binding ToggleTemperatureUnitCommand}"
+                                                                       CommandParameter="Celcius"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                    <Grid Grid.Column="1" VerticalOptions="Center" HeightRequest="30" WidthRequest="42">
+                                        <Image Source="{Binding FahrenheitButtonBackground}" Aspect="Fill" />
+                                        <Label Text="{haccpCtrl:Translate FahrenheitUnit}"
+                                               TextColor="{Binding FahrenheitButtonForegroundColor}"
+                                               Style="{StaticResource TempScaleLabelStyle}" WidthRequest="35" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       Command="{Binding ToggleTemperatureUnitCommand}"
+                                                                       CommandParameter="Fahrenheit"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                </Grid>
+                                <!--Measurement Timing-->
+                                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center"
+                                       LineBreakMode="TailTruncation" Text="{haccpCtrl:Translate MeasurementTiming}"
+                                       Style="{StaticResource White14LabelStyle}" />
+                                <Grid Grid.Row="2" Grid.Column="3" HorizontalOptions="End" VerticalOptions="Center" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="55" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsTimingMinusEnabled,Converter={StaticResource MinusButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsTimingMinusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding TimingCommand}"
+                                                                       CommandParameter="Minus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                  <Grid Grid.Column="1" VerticalOptions="Center" ColumnSpacing="0" Style="{StaticResource Blue2PlusGridStyle}">
+                                   
+                                    <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width="3" />
+                                      <ColumnDefinition Width="*" />
+                                      <ColumnDefinition Width="2" />
+                                    </Grid.ColumnDefinitions>
+                                    <haccpCtrl:HACCPEditor Grid.ColumnSpan="3" IsEnabled="False" VerticalOptions="Center"/>
+                                    <Label Grid.Column="1" Text="{Binding Timing}"
+                                           Style="{StaticResource White14LabelStyle}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                  </Grid>
+                                    <Grid Grid.Column="2" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsTimingPlusEnabled,Converter={StaticResource AddButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsTimingPlusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding TimingCommand}"
+                                                                       CommandParameter="Plus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                </Grid>
+                                <!--Auto-off Interval-->
+                                <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center"
+                                       LineBreakMode="TailTruncation" Text="{haccpCtrl:Translate AutoOffInterval}"
+                                       Style="{StaticResource White14LabelStyle}" />
+                                <Grid Grid.Row="3" Grid.Column="3" HorizontalOptions="End" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="55" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsIntervalMinusEnabled,Converter={StaticResource MinusButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsIntervalMinusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding IntervalCommand}"
+                                                                       CommandParameter="Minus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                    <Grid Grid.Column="1" VerticalOptions="Center" ColumnSpacing="0" Style="{StaticResource Blue2PlusGridStyle}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="2" />
+                                        </Grid.ColumnDefinitions>
+                                        <haccpCtrl:HACCPEditor Grid.ColumnSpan="3" IsEnabled="False" />
+                                        <Label Grid.Column="1" Text="{Binding Interval}"
+                                               Style="{StaticResource White14LabelStyle}" HorizontalOptions="Center" />
+                                    </Grid>
+                                    <Grid Grid.Column="2" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsIntervalPlusEnabled,Converter={StaticResource AddButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsIntervalPlusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding IntervalCommand}"
+                                                                       CommandParameter="Plus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                </Grid>
+                                <!--Sleep Time-->
+                                <Label Grid.Row="4" Grid.Column="1" VerticalOptions="Center"
+                                       LineBreakMode="TailTruncation" Text="{haccpCtrl:Translate SleepTime}"
+                                       Style="{StaticResource White14LabelStyle}" />
+                                <Grid Grid.Row="4" Grid.Column="3" HorizontalOptions="End" VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="55" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsSleepMinusEnabled,Converter={StaticResource MinusButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsSleepMinusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding SleepCommand}"
+                                                                       CommandParameter="Minus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                    <Grid Grid.Column="1" VerticalOptions="Center" ColumnSpacing="0" Style="{StaticResource Blue2PlusGridStyle}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="2" />
+                                        </Grid.ColumnDefinitions>
+                                        <haccpCtrl:HACCPEditor Grid.ColumnSpan="3" IsEnabled="False" />
+                                        <Label Grid.Column="1" Text="{Binding Sleep}"
+                                               Style="{StaticResource White14LabelStyle}" HorizontalOptions="Center" />
+                                    </Grid>
+                                    <Grid Grid.Column="2" VerticalOptions="Center">
+                                        <Image
+                                            Source="{Binding IsSleepPlusEnabled,Converter={StaticResource AddButtonEnableToImageConverter}}"
+                                            HeightRequest="30" WidthRequest="30" />
+                                        <haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True"
+                                                                       BackgroundColor="Transparent"
+                                                                       IsVisible="{Binding IsSleepPlusEnabled}"
+                                                                       HeightRequest="30" WidthRequest="30"
+                                                                       Command="{Binding SleepCommand}"
+                                                                       CommandParameter="Plus"
+                                                                       IsEnabled="{Binding EnableControls}" />
+                                    </Grid>
+                                </Grid>
+                                <Grid x:Name="placeholdernote" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+                                      Padding="6,6,6,0" IsVisible="{Binding PlaceHolderVisible}">
+                                    <Label Text="{Binding EnterCustomProbeDescription}"
+                                           Style="{StaticResource White14LabelStyle}" />
+                                </Grid>
+                                <haccpCtrl:HACCPEditor Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Keyboard="Text"
+                                                       AutoCorrectOff="True" x:Name="editorcontrol"
+                                                       Text="{Binding CustomProbDescription}"
+                                                       IsEnabled="{Binding EnableControls}">
+                                    <haccpCtrl:HACCPEditor.Behaviors>
+                                        <haccpCtrl:EditorMaxLengthValidator MaxLength="20" />
+                                    </haccpCtrl:HACCPEditor.Behaviors>
+                                </haccpCtrl:HACCPEditor>
+
+                                <Grid x:Name="Windowsplaceholdernote" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+                                      Padding="6,25,6,0" VerticalOptions="Start"
+                                      IsVisible="{Binding PlaceHolderVisible}">
+                                    <Label Text="{Binding EnterCustomProbeDescription}"
+                                           Style="{StaticResource White14LabelStyle}" />
+                                </Grid>
+
+                                <haccpCtrl:HACCPWindowsProbeEntry Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"
+                                                                  Keyboard="Text" x:Name="entrycontrol"
+                                                                  Text="{Binding CustomProbDescription}"
+                                                                  IsEnabled="{Binding EnableControls}"
+                                                                  Style="{StaticResource Entry}">
+                                    <haccpCtrl:HACCPWindowsProbeEntry.Behaviors>
+                                        <haccpCtrl:MaxLengthValidator MaxLength="20" />
+                                    </haccpCtrl:HACCPWindowsProbeEntry.Behaviors>
+                                </haccpCtrl:HACCPWindowsProbeEntry>
+
+                                <StackLayout Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
+                                             IsVisible="{Binding Blue2IdVisible}" Orientation="Horizontal"
+                                             HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{haccpCtrl:Translate Blue2ID}" Style="{StaticResource DeviceIdStyle}"
+                                           TextColor="#012634" />
+                                    <Label Text="{Binding Blue2Id}" Style="{StaticResource DeviceIdStyle}" />
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                    </ScrollView>
+
+						<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+                </Grid>
+            </haccpCtrl:BaseLayout.Content>
+        </haccpCtrl:BaseLayout>
+    </haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

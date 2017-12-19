@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.SelectQuestion" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{Binding Title}" IsBusy="{Binding IsBusy}">
+  <haccpCtrl:BaseView.Content>
+    <haccpCtrl:BaseLayout>
+      <haccpCtrl:BaseLayout.Content>
+        <Grid RowSpacing="0">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+            <Label Text="{Binding Title}" Style="{StaticResource WindowsTitleStyle}" />
+          </StackLayout>
+          <Grid RowSpacing="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="*" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Grid.Row="0" Padding="10,10,10,10" BackgroundColor="#254F5E" Orientation="Vertical">
+              <Label Text="{Binding Subtitle}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Style="{StaticResource WhiteNormal}" />
+            </StackLayout>
+            <StackLayout VerticalOptions="Center" Grid.Row="1" Padding="20,0,0,0" HorizontalOptions="Center" IsVisible="{Binding IsQuestionExists}">
+              <Label Text="{haccpCtrl:Translate Noquestionsfoundtoreview}" Style="{StaticResource ConnectionStatusStyle}" LineBreakMode="WordWrap" XAlign="Center" />
+            </StackLayout>
+            <ListView x:Name="QuestionListView" Grid.Row="1"  ItemsSource="{Binding Questions}" HasUnevenRows="true" BackgroundColor="Transparent" SeparatorColor="Transparent" IsVisible="{Binding IsQuestionExists, Converter={StaticResource NotConverter}}">
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell>
+                    <Grid MinimumHeightRequest="50" RowSpacing="0">
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                      </Grid.RowDefinitions>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="45" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5" />
+                      </Grid.ColumnDefinitions>
+                      <StackLayout Padding="9,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0">
+                        <Image HeightRequest="15" WidthRequest="15" Source="{Binding RecordStatus, Converter={StaticResource RecordStatusImageConverter}}" />
+                      </StackLayout>
+                      <Grid Grid.Column="1" Padding="0,10,0,10" VerticalOptions="Center">
+                        <Label Text="{Binding QuestionName}" Style="{StaticResource WhiteNormal}" LineBreakMode="WordWrap" />
+                      </Grid>
+                      <BoxView Grid.Row="1" HeightRequest=".6" Color="#6292A4" Grid.ColumnSpan="2" VerticalOptions="End" />
+                    </Grid>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.RowSpan="2" IsVisible="{Binding IsReviewAnswerVisible}">
+              <Grid BackgroundColor="Black" Opacity="0.5" />
+              <Grid VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="15" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="15" />
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="1" BackgroundColor="White" Padding="0,0,0,0">
+                  <Grid>
+                    <Grid ColumnSpacing="0" Padding="10,15,10,17">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="25" />
+                      </Grid.ColumnDefinitions>
+                      <Image x:Name="prevImage" Grid.Column="0" Source="prev.png" HorizontalOptions="Center" VerticalOptions="Start" />
+                      <Image x:Name="nextImage" Grid.Column="2" Source="next.png" HorizontalOptions="Center" VerticalOptions="Start" />
+                      <StackLayout Grid.Column="1">
+                        <Label HorizontalOptions="Center" x:Name="questionLabel" Style="{StaticResource AlertTitleStyle}" LineBreakMode="TailTruncation" />
+                        <ScrollView>
+
+
+                          <StackLayout Orientation="Vertical">
+                            <Label x:Name="answerLabel" Style="{StaticResource PopupOptionTextStyle}" HorizontalOptions="Start" />
+                            <Label x:Name="correctiveActionLabel" Style="{StaticResource PopupOptionTextStyle}" HorizontalOptions="Start" />
+                            <Label x:Name="UserName" Style="{StaticResource PopupOptionTextStyle}" HorizontalOptions="Start" />
+                            <Label x:Name="TimeStamp" Style="{StaticResource PopupOptionTextStyle}" HorizontalOptions="Start" />
+                            <Grid Padding="0,5,0,0">
+                              <Button Text="{haccpCtrl:Translate OK}" Style="{StaticResource AlertButtonStyle}" Command="{Binding ReviewAnswerOKCommand}" VerticalOptions="Center" />
+                            </Grid>
+                          </StackLayout>
+                        </ScrollView>
+                      </StackLayout>
+                    </Grid>
+                    <haccpCtrl:HACCPNextPrevButton x:Name="prevButton" HorizontalOptions="Start" WidthRequest="70" VerticalOptions="Start" HeightRequest="60" BackgroundColor="Transparent" Clicked="PrevButtonClick" />
+                    <haccpCtrl:HACCPNextPrevButton x:Name="nextButton" IsNext="True" HorizontalOptions="End" WidthRequest="70" VerticalOptions="Start" HeightRequest="60" BackgroundColor="Transparent" Clicked="NextButtonClick" />
+                  </Grid>
+                </Frame>
+              </Grid>
+            </Grid>
+            <Grid Grid.Row="2" Style="{StaticResource WindowsListScrollHelpGridStyle}" />
+          </Grid>
+          <haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+        </Grid>
+      </haccpCtrl:BaseLayout.Content>
+    </haccpCtrl:BaseLayout>
+  </haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.RecordItem" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate RecordItem}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Resources>
+		<!--<ResourceDictionary>
+      <Style x:Key="TemperatureEntry" TargetType="Entry">
+        <Setter Property="TextColor" Value="Transparent"/>
+        <Style.Triggers>
+          <EventTrigger Event="TextChanged">
+            <haccpCtrl:TemperartureEntryTriggerAction />
+          </EventTrigger>
+        </Style.Triggers>
+      </Style>
+    </ResourceDictionary>-->
+	</haccpCtrl:BaseView.Resources>
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+					<Label Text="{haccpCtrl:Translate RecordItem}" Style="{StaticResource WindowsTitleStyle}" />
+				</StackLayout>
+				<Grid RowSpacing="0" Grid.Row="1">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<!--Top connection status bar-->
+					<ScrollView Grid.Row="0">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="55" />
+								<RowDefinition Height="135" />
+								<RowDefinition Height="70" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="125" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="13" />
+								<ColumnDefinition />
+								<ColumnDefinition Width="13" />
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Row="0" Grid.Column="1" Padding="0,10,0,0" IsVisible="{Binding IsManualEntryOn, Converter={StaticResource NotConverter}}">
+								<Button Text="{Binding ConnectionStatus}" x:Name="Connection_Button" Command="{Binding Blue2Command}" Style="{Binding Blue2ButtonStyle}" />
+							</Grid>
+							<!--mimimum and maximum temperature readings-->
+							<StackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Start" Padding="0,10,0,0">
+								<Label Text="{Binding SelectedItem.Name}" HorizontalOptions="Center" Style="{StaticResource DeviceNameStyle}" LineBreakMode="NoWrap" />
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="2" />
+										<RowDefinition />
+										<RowDefinition Height="42" />
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition />
+									</Grid.ColumnDefinitions>
+									<Image Source="valueBg.png" Grid.RowSpan="3" Grid.ColumnSpan="2" Aspect="Fill" />
+									<StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
+										<Label Text="{haccpCtrl:Translate Min}" Style="{StaticResource Golden16LabelStyle}" HorizontalOptions="End" LineBreakMode="NoWrap" />
+										<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="0,-10,0,0">
+											<Image Source="temperature.png" HeightRequest="33" />
+											<Label Text="{Binding MinimumTemperature}" Style="{StaticResource Blue24LabelStyle}" LineBreakMode="NoWrap" />
+										</StackLayout>
+									</StackLayout>
+									<StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
+										<Label Text="{haccpCtrl:Translate Max}" Style="{StaticResource Golden16LabelStyle}" HorizontalOptions="End" LineBreakMode="NoWrap" />
+										<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="0,-10,0,0">
+											<Image Source="temperature.png" HeightRequest="33" />
+											<Label Text="{Binding MaximumTemperature}" Style="{StaticResource Blue24LabelStyle}" LineBreakMode="NoWrap" />
+										</StackLayout>
+									</StackLayout>
+								</Grid>
+							</StackLayout>
+							<Label Grid.Row="2" Grid.Column="1" Text="{Binding DisplayBlue2Temperature}" Style="{StaticResource White48LabelStyle}" FontSize="{Binding DisplayBlue2Temperature , Converter={StaticResource FontSizeconverter}}" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsManualEntryOn, Converter={StaticResource NotConverter}}" LineBreakMode="{Binding LineBreakMode}" />
+							<!--circle grid-->
+							<Grid x:Name="CircleGrid" Grid.Row="3" Rotation="{Binding Rotation}" Grid.Column="1" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsManualEntryOn, Converter={StaticResource NotConverter}}">
+								<Image Source="greencircle.png" IsVisible="{Binding OptimumTemperatureIndicator}" />
+								<Image Source="redcircle.png" IsVisible="{Binding HighTemperatureIndicator}" />
+								<Image Source="bluecircle.png" IsVisible="{Binding LowTemperatureIndicator}" />
+							</Grid>
+							<Grid Grid.Row="3" Grid.Column="1" IsVisible="{Binding IsWakeButtonVisible}" HorizontalOptions="End" VerticalOptions="Start" HeightRequest="30">
+								<Image Source="wakeup.png" />
+								<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" BackgroundColor="Transparent" Command="{Binding WakeProbeCommand}" />
+							</Grid>
+							<Grid Grid.Row="4" Grid.Column="1" VerticalOptions="Center">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="25" />
+									<RowDefinition Height="75" />
+								</Grid.RowDefinitions>
+								<StackLayout Grid.Row="0" Orientation="Horizontal">
+									<Image Source="{Binding NoteIcon}" HeightRequest="22" WidthRequest="22" />
+									<Label Text="{haccpCtrl:Translate Enternotesabouttheitem}" TextColor="{Binding NoteHintColor}" Style="{StaticResource GrayHeader}" VerticalOptions="End" />
+								</StackLayout>
+								<haccpCtrl:HACCPEditor Grid.Row="1" Keyboard="Text" HeightRequest="80" x:Name="editorcontrol" IsEnabled="{Binding IsNoteEnable}" Text="{Binding NoteText,Mode=TwoWay}">
+									<haccpCtrl:HACCPEditor.Behaviors>
+										<haccpCtrl:EditorMaxLengthValidator MaxLength="1000" />
+									</haccpCtrl:HACCPEditor.Behaviors>
+								</haccpCtrl:HACCPEditor>
+							</Grid>
+							<!--manual entry grid-->
+							<Grid Grid.Row="2" Grid.Column="1" Padding="0,15,0,0" VerticalOptions="Center" HeightRequest="70" IsVisible="{Binding IsManualEntryOn}">
+								<Grid Padding="10,0,0,0" HeightRequest="70" x:Name="TempLabelGrid">
+									<Label TextColor="White" Style="{StaticResource ManualTemperatureStyle}" VerticalOptions="Center" Text="{Binding DisplayManualEntryTemperature}" />
+								</Grid>
+								<haccpCtrl:HACCPTemperatureEntry x:Name="manualEntry" HeightRequest="60" Text="{Binding ManualTemperature,Mode=TwoWay}" Placeholder="{haccpCtrl:Translate Temperature}" Keyboard="Numeric" ShowPlusMinus="true" Style="{StaticResource TemperatureEntry}">
+									<haccpCtrl:HACCPTemperatureEntry.Behaviors>
+										<haccpCtrl:RestrictDecimalDigits DecimalDigitCount="1" />
+									</haccpCtrl:HACCPTemperatureEntry.Behaviors>
+								</haccpCtrl:HACCPTemperatureEntry>
+							</Grid>
+						</Grid>
+					</ScrollView>
+					<BoxView x:Name="bottomline" Grid.Row="1" VerticalOptions="Start" HeightRequest="1" Color="Black" />
+					<!--Bottom panel contains record button-->
+					<Grid x:Name="bottomgrid" Grid.Row="1" Style="{StaticResource BottomGridStyle}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Image Source="bluetooth.png" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsManualEntryOn}" HeightRequest="25" WidthRequest="25" />
+							<Image Source="toggle.png" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="{Binding IsManualEntryOn, Converter={StaticResource NotConverter}}" HeightRequest="25" WidthRequest="25" />
+							<haccpCtrl:HACCPHomePageButton x:Name="toggleBtn" RemoveBorderOnClick="True" HeightRequest="40" WidthRequest="50" Command="{Binding KeyPadToggleCommand}" Style="{StaticResource TransparentBorderLessButtonStyle}" />
+						</Grid>
+						<BoxView Grid.Column="0" HorizontalOptions="End" Style="{StaticResource BottomLineStyle}" WidthRequest="1" Color="Black" />
+						<!--<Button Grid.Column="1"  Image="record.png" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding RecordCommand}" />-->
+						<Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+							<Image Source="record.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" />
+							<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" x:Name="recordbutton" HeightRequest="40" WidthRequest="50" Command="{Binding RecordCommand}" Style="{StaticResource TransparentBorderLessButtonStyle}" />
+						</Grid>
+						<BoxView Grid.Column="1" HorizontalOptions="End" Style="{StaticResource BottomLineStyle}" WidthRequest="1" Color="Black" />
+						<Label HorizontalOptions="Center" Grid.Column="2" VerticalOptions="Center" Text="{haccpCtrl:Translate NA}" Style="{StaticResource YellowBigLabel}" />
+						<haccpCtrl:HACCPHomePageButton Grid.Column="2" RemoveBorderOnClick="True" Style="{StaticResource NAButton}" Command="{Binding NACommand}" />
+					</Grid>
+					<Grid x:Name="ToastFrame" Grid.Row="0" Padding="13,0,13,5" VerticalOptions="End" HeightRequest="40" IsVisible="false">
+						<Frame Padding="0,0,0,0" BackgroundColor="Gray">
+							<Label Text="{haccpCtrl:Translate RecordSavedToast}" Style="{StaticResource ToastTextStyle}" />
+						</Frame>
+					</Grid>
+					<Grid Grid.Row="2" Style="{StaticResource WindowsScrollHelpGridStyle}" />
+				</Grid>
+				<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+			</Grid>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

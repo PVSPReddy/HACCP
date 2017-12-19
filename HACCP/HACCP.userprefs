@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{4848DA7B-3804-401C-B69C-D493563649BB}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HACCP.Core/Helpers/HACCPUtil.cs">
+    <Files>
+      <File FileName="Droid/BLE/Adapter.cs" Line="48" Column="1" />
+      <File FileName="Droid/Localization/ResourceFileHelper.cs" Line="42" Column="1" />
+      <File FileName="HACCP.Core/Interfaces/IResourceFileHelper.cs" Line="11" Column="2" />
+      <File FileName="HACCP.Core/ViewModels/ServerSettingsViewModel.cs" Line="558" Column="1" />
+      <File FileName="HACCP/HACCP.cs" Line="43" Column="13" />
+      <File FileName="HACCP.Core/Services/HACCPService.cs" Line="1" Column="1" />
+      <File FileName="HACCP.Core/Common/HACCPEnum.cs" Line="42" Column="25" />
+      <File FileName="HACCP.Core/Helpers/HACCPUtil.cs" Line="64" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.HACCP.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E36DCC5A-F8BC-4075-8300-C4EAAC81594F" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Catchpoint exceptionName="System.Exception" includeSubclasses="True" />
+      <Breakpoint file="/Users/swamykottu/Downloads/HACCP/Droid/Localization/ResourceFileHelper.cs" relfile="Droid/Localization/ResourceFileHelper.cs" line="23" column="1" />
+      <Breakpoint file="/Users/swamykottu/Downloads/HACCP/Droid/Localization/ResourceFileHelper.cs" relfile="Droid/Localization/ResourceFileHelper.cs" line="21" column="1" />
+      <Breakpoint file="/Users/swamykottu/Downloads/HACCP/Droid/Localization/ResourceFileHelper.cs" relfile="Droid/Localization/ResourceFileHelper.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.HACCP.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
+  <MultiItemStartupConfigurations />
+</Properties>

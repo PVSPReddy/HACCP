@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.RecordAnswer" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate RecordAnswer}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+						<Label Text="{haccpCtrl:Translate RecordAnswer}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid Grid.Row="1" RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<!--  <StackLayout VerticalOptions="Start" Grid.Row="0" Padding="20,20,20,0" Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">-->
+						<Grid Grid.Row="0" VerticalOptions="Start" Padding="20,20,20,0" HorizontalOptions="FillAndExpand">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Label Text="{Binding Subtitle}" Style="{StaticResource WhiteNormal}" Grid.Column="0" HorizontalOptions="Fill" LineBreakMode="WordWrap" />
+							<StackLayout IsVisible="{Binding IsYesNo}" WidthRequest="75" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+								<Grid HorizontalOptions="End">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="70" />
+										<ColumnDefinition Width="20" />
+									</Grid.ColumnDefinitions>
+									<Label Text="{Binding Answer}" Grid.Column="0" Style="{StaticResource WhiteNormal}" HorizontalOptions="End" LineBreakMode="TailTruncation" />
+								</Grid>
+							</StackLayout>
+						</Grid>
+						<!--   </StackLayout>-->
+						<Grid Grid.Row="1">
+							<StackLayout Orientation="Vertical">
+								<StackLayout IsVisible="{Binding IsNumeric}" Padding="20, 5, 20,0">
+									<haccpCtrl:HACCPEntry x:Name="numericValueEntry" MaxLength="8" Keyboard="Numeric" IsLastItem="true" NeedDot="True" ShowPlusMinus="true" Placeholder="{haccpCtrl:Translate Numericvalue}" Text="{Binding NumericAnswer,Mode=TwoWay}" Style="{StaticResource Entry}" TextColor="White"
+										VerticalOptions="Center">
+										<haccpCtrl:HACCPEntry.Behaviors>
+											<haccpCtrl:RecordAnswerDecimalDigits DecimalDigitCount="1" />
+										</haccpCtrl:HACCPEntry.Behaviors>
+									</haccpCtrl:HACCPEntry>
+								</StackLayout>
+								<StackLayout Spacing="20" HeightRequest="50" VerticalOptions="Center" Padding="20, 0, 20,0">
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition />
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Label Grid.Column="0" Text="{Binding SelectedCorrectiveActionLabel}" Style="{StaticResource WhiteNormal}" />
+										<Grid Grid.Column="1" HorizontalOptions="End">
+											<Image Source="editCA.png" HorizontalOptions="End" VerticalOptions="Center" />
+											<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" x:Name="actionBtn" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" Command="{Binding CorrectiveActionCommand}" />
+										</Grid>
+									</Grid>
+								</StackLayout>
+							</StackLayout>
+						</Grid>
+						<!--bottom grid-->
+						<Grid x:Name="bottomgrid" Grid.Row="1" VerticalOptions="End" Style="{StaticResource BottomGridStyle}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<BoxView x:Name="bottomline" Grid.ColumnSpan="3" VerticalOptions="Start" HeightRequest="1" Color="Black" />
+							<Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label IsVisible="{Binding IsNumeric, Converter={StaticResource NotConverter}}" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding YesNoButtonText}" Style="{StaticResource YellowBigLabel}" />
+								<Image IsVisible="{Binding IsNumeric}" Source="{Binding ToggleImage}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" />
+								<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" x:Name="toggleBtn" HorizontalOptions="Center" Command="{Binding ToggleYesNoImageCommand}" Style="{StaticResource BottomPaneluttonStyle}" />
+							</Grid>
+							<BoxView Grid.Column="0" HorizontalOptions="End" Style="{StaticResource BottomLineStyle}" WidthRequest="1" Color="Black" />
+							<Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Image Source="record.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" />
+								<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="50" Command="{Binding SaveCommand}" />
+							</Grid>
+							<BoxView Grid.Column="1" HorizontalOptions="End" Style="{StaticResource BottomLineStyle}" WidthRequest="1" Color="Black" />
+							<Label HorizontalOptions="Center" Grid.Column="2" VerticalOptions="Center" Text="{haccpCtrl:Translate NA}" Style="{StaticResource YellowBigLabel}" />
+							<haccpCtrl:HACCPHomePageButton Grid.Column="2" RemoveBorderOnClick="True" Command="{Binding NACommand}" Style="{StaticResource NAButton}" />
+						</Grid>
+					</Grid>
+					<Grid Grid.RowSpan="3" IsVisible="{Binding IsCorrctiveOptionsVisible}">
+						<Grid BackgroundColor="Black" Opacity="0.5" />
+						<Grid VerticalOptions="Center" HeightRequest="250" Padding="0,0,0,50">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Frame Grid.Column="1" BackgroundColor="White">
+								<StackLayout Padding="0,10,0,10">
+									<Label HorizontalOptions="Center" Text="{haccpCtrl:Translate CorrectiveActions}" Style="{StaticResource AlertTitleStyle}" />
+									<Grid Padding="0,8,0,0">
+										<ListView x:Name="correctiveActionList" ItemsSource="{Binding CorrectiveActions}" SeparatorColor="Transparent" IsGroupingEnabled="False">
+											<ListView.ItemTemplate>
+												<DataTemplate>
+													<ViewCell StyleId="Corrective_Cell">
+														<StackLayout Padding="0,0,6,0">
+															<BoxView HeightRequest=".6" Color="#cfe0eb" />
+															<Grid Padding="6,6,6,0">
+																<Label Text="{Binding CorrActionName}" Style="{StaticResource PopupOptionTextStyle}" VerticalOptions="Center" LineBreakMode="TailTruncation" />
+															</Grid>
+														</StackLayout>
+													</ViewCell>
+												</DataTemplate>
+											</ListView.ItemTemplate>
+										</ListView>
+									</Grid>
+								</StackLayout>
+							</Frame>
+						</Grid>
+					</Grid>
+					<Grid Grid.Row="2" Style="{StaticResource WindowsScrollHelpGridStyle}" />
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="3" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

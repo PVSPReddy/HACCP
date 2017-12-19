@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.SelectLocations" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate SelectLocation}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout Grid.Row="0" IsVisible="{Binding IsWindows}" Style="{StaticResource WindowsTitleStack}">
+						<Label Text="{haccpCtrl:Translate SelectLocation}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="1" RowSpacing="0">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<StackLayout Grid.Row="0" HorizontalOptions="Fill">
+							<Grid Padding="17,17,17,10" HorizontalOptions="Fill">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+								</Grid.RowDefinitions>
+								<haccpCtrl:HACCPEntry Grid.Row="0" Style="{StaticResource Entry}" Text="" />
+								<StackLayout Padding="4, 0, 0,0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center">
+									<Image Source="search.png" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="17" WidthRequest="17" />
+								</StackLayout>
+								<haccpCtrl:HACCPEntry IsSearchbox="true" IsLastItem="true" Grid.Row="0" Text="" x:Name="searchLocation" Keyboard="Text" Placeholder="{haccpCtrl:Translate SearchLocation}" Style="{StaticResource Entry}" />
+							</Grid>
+							<Grid Padding="17,0,10,0">
+								<Label Text="{haccpCtrl:Translate Nolocationsmatchyoursearch}" IsVisible="{Binding HasLocations, Converter={StaticResource NotConverter}}" Style="{StaticResource WhiteNormal}" HorizontalOptions="Center" LineBreakMode="WordWrap" XAlign="Center" />
+							</Grid>
+						</StackLayout>
+						<ListView x:Name="LocationListview" Grid.Row="1" VerticalOptions="Fill" IsVisible="{Binding HasLocations}" ItemsSource="{Binding Locations}" HasUnevenRows="true" BackgroundColor="Transparent" SeparatorColor="Transparent">
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid MinimumHeightRequest="50" RowSpacing="0">
+											<Grid.RowDefinitions>
+												<RowDefinition Height="Auto" />
+												<RowDefinition Height="Auto" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="45" />
+												<ColumnDefinition Width="*" />
+											</Grid.ColumnDefinitions>
+											<StackLayout Padding="9,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0">
+												<Image HeightRequest="15" WidthRequest="15" Source="{Binding RecordStatus, Converter={StaticResource RecordStatusImageConverter}}" />
+											</StackLayout>
+											<Grid Grid.Column="1" Padding="0,10,0,10" VerticalOptions="Center">
+												<Label Text="{Binding Name}" Style="{StaticResource WhiteNormal}" LineBreakMode="WordWrap" />
+											</Grid>
+											<BoxView Grid.Row="1" HeightRequest=".6" Color="#6292A4" Grid.ColumnSpan="2" VerticalOptions="End" />
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+						<Grid Grid.Row="2" Style="{StaticResource WindowsListScrollHelpGridStyle}" />
+					</Grid>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

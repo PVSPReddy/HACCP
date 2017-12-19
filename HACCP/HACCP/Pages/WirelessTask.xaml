@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.WirelessTask" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate WirelessTasks}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Resources>
+		<ResourceDictionary>
+			<haccpCtrl:LoginStatusConverter x:Key="loginStatusConverter" />
+		</ResourceDictionary>
+	</haccpCtrl:BaseView.Resources>
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout Grid.Row="0" IsVisible="{Binding IsWindows}" Style="{StaticResource WindowsTitleStack}">
+						<Label Text="{haccpCtrl:Translate WirelessTasks}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition Height="1" />
+							<RowDefinition />
+							<RowDefinition Height="1" />
+							<RowDefinition />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="1" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid Grid.Row="0" Grid.Column="0" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="connectionsettings.png" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate ServerSettings}" Style="{StaticResource ItemLabel95}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding ServerSettingsCommand}" Style="{StaticResource BorderLessButtonStyle}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="0" Grid.Column="1">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="23" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="23" />
+							</Grid.RowDefinitions>
+							<BoxView Grid.Row="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<Grid Grid.Row="0" Grid.Column="2" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="updatesite.png" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate UpdateSiteandSettings}" Style="{StaticResource ItemLabel105}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding UpdateSiteCommand}" Style="{StaticResource BorderLessButtonStyle}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="1" Grid.Column="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="23" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="23" />
+							</Grid.ColumnDefinitions>
+							<BoxView Grid.Column="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<Grid Grid.Row="2" Grid.Column="0" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="updateuserlist.png" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate UpdateUserList}" Style="{StaticResource ItemLabel95}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding DownloadUsersCommand}" Style="{StaticResource BorderLessButtonStyle}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="2" Grid.Column="1">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="23" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="23" />
+							</Grid.RowDefinitions>
+							<BoxView Grid.Row="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="1" Grid.Column="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="23" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="23" />
+							</Grid.ColumnDefinitions>
+							<BoxView Grid.Column="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<Grid Grid.Row="2" Grid.Column="2" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="{Binding IsMenuCheckListActive, Converter={StaticResource UserStatusConverter}, ConverterParameter=1}" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate SelectChangeMenu}" IsEnabled="{Binding IsMenuCheckListActive}" Style="{StaticResource ItemLabel125}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding ChangeMenuCommand}" Style="{StaticResource BorderLessButtonStyle}" IsEnabled="{Binding IsMenuCheckListActive}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="3" Grid.Column="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="23" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="23" />
+							</Grid.ColumnDefinitions>
+							<BoxView Grid.Column="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<Grid Grid.Row="4" Grid.Column="0" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="{Binding IsMenuCheckListActive, Converter={StaticResource UserStatusConverter}, ConverterParameter=2}" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate SelectChangeChecklist}" IsEnabled="{Binding IsMenuCheckListActive}" Style="{StaticResource ItemLabel125}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding ChangeCheckListCommand}" Style="{StaticResource BorderLessButtonStyle}" IsEnabled="{Binding IsMenuCheckListActive}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="4" Grid.Column="1">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="23" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="23" />
+							</Grid.RowDefinitions>
+							<BoxView Grid.Row="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<!--line control with 23 padding-->
+						<Grid Grid.Row="3" Grid.Column="2">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="23" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="23" />
+							</Grid.ColumnDefinitions>
+							<BoxView Grid.Column="1" Style="{StaticResource LineSeperatorStyle}" />
+						</Grid>
+						<Grid Grid.Row="4" Grid.Column="2" RowSpacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="5" />
+								<RowDefinition />
+								<RowDefinition />
+								<RowDefinition Height="5" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width=".2*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width=".2*" />
+							</Grid.ColumnDefinitions>
+							<Image Grid.Row="1" Grid.Column="1" Source="uploadrecords.png" Style="{StaticResource HomeIconStyle}" />
+							<StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+								<Label Text="{haccpCtrl:Translate UploadRecords}" Style="{StaticResource ItemLabel95}" />
+							</StackLayout>
+							<haccpCtrl:HACCPHomePageButton Grid.RowSpan="4" Grid.Column="1" Command="{Binding UploadRecordCommand}" Style="{StaticResource BorderLessButtonStyle}" />
+						</Grid>
+						<Grid Grid.Row="5" Style="{StaticResource WindowsScrollHelpGridStyle}" />
+					</Grid>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

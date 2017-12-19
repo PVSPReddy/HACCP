@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.MenuChecklist" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{Binding Title}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+						<Label Text="{Binding Title}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid RowSpacing="0" Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<!--					<StackLayout VerticalOptions="Center" HorizontalOptions="Fill"  Grid.Row="0"  Padding="10,10,10,10" BackgroundColor="#254F5E" >
+						<Label Text="{Binding Subtitle}" Style="{StaticResource ConnectionStatusStyle}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+					</StackLayout>-->
+						<StackLayout Grid.Row="1">
+							<ListView x:Name="menuListView" ItemsSource="{Binding Menus}" IsVisible="{Binding IsMenu}" HasUnevenRows="true" BackgroundColor="Transparent" SeparatorColor="Transparent">
+								<ListView.ItemTemplate>
+									<DataTemplate>
+										<ViewCell>
+											<Grid MinimumHeightRequest="50" RowSpacing="0">
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto" />
+													<RowDefinition Height="Auto" />
+												</Grid.RowDefinitions>
+												<Grid Padding="0,8,0,8" HorizontalOptions="Start" ColumnSpacing="0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="20" />
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="8" />
+													</Grid.ColumnDefinitions>
+													<Label Grid.Column="1" Text="{Binding Name}" Style="{StaticResource WhiteNormal}" LineBreakMode="WordWrap" />
+												</Grid>
+												<BoxView Grid.Row="1" HeightRequest=".6" Color="#6292A4" VerticalOptions="End" />
+											</Grid>
+										</ViewCell>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+							</ListView>
+							<ListView x:Name="checklistListView" ItemsSource="{Binding Checklists}" IsVisible="{Binding IsMenu, Converter={StaticResource NotConverter}}" HasUnevenRows="true" BackgroundColor="Transparent" SeparatorColor="Transparent">
+								<ListView.ItemTemplate>
+									<DataTemplate>
+										<ViewCell>
+											<Grid MinimumHeightRequest="50" RowSpacing="0">
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto" />
+													<RowDefinition Height="Auto" />
+												</Grid.RowDefinitions>
+												<Grid Padding="0,8,0,8" HorizontalOptions="Start" ColumnSpacing="0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="20" />
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="8" />
+													</Grid.ColumnDefinitions>
+													<Label Grid.Column="1" Text="{Binding Name}" Style="{StaticResource WhiteNormal}" LineBreakMode="WordWrap" />
+												</Grid>
+												<BoxView Grid.Row="1" HeightRequest=".6" Color="#6292A4" VerticalOptions="End" />
+											</Grid>
+										</ViewCell>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+							</ListView>
+						</StackLayout>
+					</Grid>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

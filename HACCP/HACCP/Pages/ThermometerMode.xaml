@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.ThermometerMode" xmlns:haccpCtrl="clr-namespace:HACCP;assembly=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate ThermometerMode}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+						<Label Text="{haccpCtrl:Translate ThermometerMode}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<ScrollView Grid.Row="1">
+						<StackLayout Orientation="Vertical">
+							<Grid Style="{StaticResource ThermoHeader}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="1" />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Padding="8,0,0,0" Orientation="Horizontal">
+									<Image Source="cooperlogo.png" HorizontalOptions="Start" Style="{StaticResource CooperLogoStyle}"  VerticalOptions="Center"/>
+									<StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="8,15,0,8">
+										<Label Text="{haccpCtrl:Translate HACCPManager}" Style="{StaticResource HACCPManager}" />
+										<Label Text="{Binding AppVerison}" Style="{StaticResource VersionLabel}" />
+									</StackLayout>
+								</StackLayout>
+								<StackLayout Grid.Column="1" BackgroundColor="#2d6476" />
+								<StackLayout Grid.Column="2" Grid.Row="0" Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Padding="5,10,10,15" Spacing="10" MinimumWidthRequest="60" WidthRequest="{Binding BatteryPanelWidth}">
+									<Image Source="{Binding BatteryLevel, Converter={StaticResource BatteryLevelConverter}}" IsVisible="{Binding ShowBluetoothIcon}" Style="{StaticResource BatteryIconStyle}" />
+									<Image Source="bluetooth.png" IsVisible="{Binding ShowBluetoothIcon}" Style="{StaticResource BluetoothIconStyle}" HeightRequest="25" WidthRequest="25" />
+								</StackLayout>
+							</Grid>
+							<Grid Padding="15,0,15,5" RowSpacing="8">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="65" />
+									<RowDefinition Height="80" />
+									<RowDefinition Height="10" />
+									<RowDefinition Height="Auto" />
+									<RowDefinition Height="Auto" />
+									<RowDefinition Height="80" />
+								</Grid.RowDefinitions>
+								<Grid Grid.Row="0" HorizontalOptions="Center" Padding="0,10,0,10">
+									<Button x:Name="Connection_Button" Text="{Binding ConnectionStatus}" Command="{Binding Blue2Command}" Style="{Binding Blue2ButtonStyle}" />
+								</Grid>
+								<!--<haccpCtrl:HACCPEntry Grid.Row="1" IsEnabled="false" Style="{StaticResource Entry}" />-->
+								<haccpCtrl:HACCPEditor Grid.Row="1" IsEnabled="False" />
+								<Grid Grid.Row="1" VerticalOptions="Center" Padding="5,18,15,18">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition Width="100" />
+									</Grid.ColumnDefinitions>
+									<Label Grid.Column="0" Text="{Binding CurrentTemperatureFormatted}" TextColor="White" FontSize="{Binding Blue2TempFontSize}" HorizontalOptions="Center" LineBreakMode="{Binding LineBreakMode}" />
+									<Grid Grid.Column="1" HorizontalOptions="End">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="42" />
+											<ColumnDefinition Width="42" />
+										</Grid.ColumnDefinitions>
+										<Grid Grid.Column="0" VerticalOptions="Center" HeightRequest="30" WidthRequest="42">
+											<Image Source="{Binding CelciusButtonBackground}" Aspect="Fill" />
+											<Label Text="{haccpCtrl:Translate CelsciustUnit}" Style="{StaticResource TempScaleLabelStyle}" TextColor="{Binding CelciusButtonForegroundColor}" />
+											<!--<Button BackgroundColor="Transparent" Command="{Binding ToggleTemperatureUnitCommand}" CommandParameter="Celcius" IsEnabled="{Binding EnableControls}" />-->
+											<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" BackgroundColor="Transparent" Command="{Binding ToggleTemperatureUnitCommand}" CommandParameter="Celcius" IsEnabled="{Binding EnableControls}" />
+										</Grid>
+										<Grid Grid.Column="1" VerticalOptions="Center" HeightRequest="30" WidthRequest="42">
+											<Image Source="{Binding FahrenheitButtonBackground}" Aspect="Fill" />
+											<Label Text="{haccpCtrl:Translate FahrenheitUnit}" Style="{StaticResource TempScaleLabelStyle}" TextColor="{Binding FahrenheitButtonForegroundColor}" />
+											<!--<Button BackgroundColor="Transparent" Command="{Binding ToggleTemperatureUnitCommand}" CommandParameter="Fahrenheit" IsEnabled="{Binding EnableControls}" />-->
+											<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" BackgroundColor="Transparent" Command="{Binding ToggleTemperatureUnitCommand}" CommandParameter="Fahrenheit" IsEnabled="{Binding EnableControls}" />
+										</Grid>
+									</Grid>
+								</Grid>
+								<!--circle grid-->
+								<Grid Grid.Row="3" x:Name="CircleGrid" Rotation="{Binding Rotation}" Style="{StaticResource ThermomterGridStyle}">
+									<Image Source="greencircle.png" />
+								</Grid>
+								<Grid Grid.Row="3" IsVisible="{Binding IsWakeButtonVisible}" HorizontalOptions="End" VerticalOptions="Start" HeightRequest="30">
+									<Image Source="wakeup.png" />
+									<!--<Button BackgroundColor="Transparent" Command="{Binding WakeProbeCommand}" />-->
+									<haccpCtrl:HACCPHomePageButton RemoveBorderOnClick="True" BackgroundColor="Transparent" Command="{Binding WakeProbeCommand}" />
+								</Grid>
+								<Grid x:Name="ProbeGrid" Grid.Row="4">
+									<haccpCtrl:HACCPEntry Text="{Binding CustomProbDescription}" Style="{StaticResource Entry}" VerticalOptions="Center" HeightRequest="40" />
+									<Grid BackgroundColor="Transparent" HeightRequest="40" />
+								</Grid>
+								<!--<haccpCtrl:HACCPEntry Grid.Row="5" IsEnabled="false" Style="{StaticResource Entry}" HeightRequest="45" HorizontalOptions="Fill" />-->
+								<haccpCtrl:HACCPEditor Grid.Row="5" IsEnabled="False" />
+								<StackLayout Grid.Row="5" Padding="10,0,10,0" HorizontalOptions="FillAndExpand" HeightRequest="45" VerticalOptions="Center">
+									<Label BackgroundColor="Transparent" Text="{Binding CurrentDay}" Style="{StaticResource WrapLabelStyle}" WidthRequest="300" />
+									<Label BackgroundColor="Transparent" Text="{Binding CurrentDateTime}" Style="{StaticResource WrapLabelStyle}" />
+								</StackLayout>
+							</Grid>
+						</StackLayout>
+					</ScrollView>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

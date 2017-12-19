@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.SelectUser" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate SelectUser}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<haccpCtrl:BaseLayout.Content>
+				<Grid RowSpacing="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackLayout Style="{StaticResource WindowsTitleStack}" Grid.Row="0" IsVisible="{Binding IsWindows}">
+						<Label Text="{haccpCtrl:Translate SelectUser}" Style="{StaticResource WindowsTitleStyle}" />
+					</StackLayout>
+					<Grid Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<ListView Grid.Row="0" x:Name="UserListview" ItemsSource="{Binding UsersGrouped}" HasUnevenRows="true" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}" GroupShortNameBinding="{Binding Key}" BackgroundColor="Transparent" SeparatorColor="Transparent">
+							<ListView.GroupHeaderTemplate>
+								<DataTemplate>
+									<ViewCell Height="30">
+										<!--                                    <Grid>-->
+										<StackLayout HeightRequest="28" Padding="20,5,0,5" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill">
+											<Label Text="{Binding Key}" Style="{StaticResource GrayHeader}" />
+										</StackLayout>
+										<!--                                        <BoxView HeightRequest=".6" Color="#6292A4" VerticalOptions="End" />-->
+										<!--                                    </Grid>-->
+									</ViewCell>
+								</DataTemplate>
+							</ListView.GroupHeaderTemplate>
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<Grid>
+											<StackLayout Spacing="5" Padding="20,10,10,10" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill">
+												<Label Text="{Binding Name}" Style="{StaticResource WhiteNormal}" />
+												<Image Source="tick.png" IsVisible="{Binding IsSelected}" VerticalOptions="Center" HorizontalOptions="End" />
+											</StackLayout>
+											<BoxView HeightRequest=".6" Color="#6292A4" VerticalOptions="End" />
+										</Grid>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+						<Grid Grid.RowSpan="2" BackgroundColor="Transparent" x:Name="PasswordPanel" VerticalOptions="FillAndExpand" IsVisible="{Binding DisplayPasswordPopup}">
+							<Grid BackgroundColor="Black" Opacity="0.5" />
+							<Grid Padding="20,5,20,0" VerticalOptions="Start">
+								<Frame BackgroundColor="White" HeightRequest="200" VerticalOptions="Start">
+									<StackLayout Padding="10,5,10,0">
+										<Label Style="{StaticResource AlertTitleStyle}" Text="{haccpCtrl:Translate Login}" />
+										<Grid HeightRequest="1" WidthRequest="280" HorizontalOptions="Center" BackgroundColor="#4D738A" />
+										<Label Style="{StaticResource AlertMessageStyle}" Text="{haccpCtrl:Translate Enteryourpassword}" />
+										<haccpCtrl:HACCPPasswordEntry x:Name="passwordTextBox" MaxLength="5" Style="{StaticResource PasswordEntry}" TextColor="Black" Text="{Binding LoginPassword}" Placeholder="{haccpCtrl:Translate Enteryourpassword}">
+											<haccpCtrl:HACCPPasswordEntry.Behaviors>
+												<haccpCtrl:MaxLengthValidator MaxLength="5" />
+											</haccpCtrl:HACCPPasswordEntry.Behaviors>
+										</haccpCtrl:HACCPPasswordEntry>
+										<Grid Padding="0,2,0,0">
+											<haccpCtrl:HACCPDefaultButton Grid.Column="0" Text="{haccpCtrl:Translate Cancel}" Style="{StaticResource AlertButtonStyle}" Command="{Binding CancelCommand}" />
+											<haccpCtrl:HACCPDefaultButton Grid.Column="1" Text="{haccpCtrl:Translate Login}" IsEnabled="{Binding IsLoginEnabled}" Style="{StaticResource AlertButtonStyle}" Command="{Binding CheckLoginCommand}" />
+										</Grid>
+									</StackLayout>
+								</Frame>
+							</Grid>
+						</Grid>
+						<Grid Grid.Row="1" Style="{StaticResource WindowsListScrollHelpGridStyle}" />
+					</Grid>
+					<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+				</Grid>
+			</haccpCtrl:BaseLayout.Content>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

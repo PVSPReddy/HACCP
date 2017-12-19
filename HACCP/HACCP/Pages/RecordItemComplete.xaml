@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<haccpCtrl:BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HACCP.RecordItemComplete" xmlns:haccpCtrl="clr-namespace: HACCP; assemply=HACCP" BackgroundImage="bg.png" BackgroundColor="#306577" Title="{haccpCtrl:Translate RecordItemSavePreview}" IsBusy="{Binding IsBusy}">
+	<haccpCtrl:BaseView.Content>
+		<haccpCtrl:BaseLayout>
+			<Grid RowSpacing="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<StackLayout IsVisible="{Binding IsWindows}" Grid.Row="0" Style="{StaticResource WindowsTitleStack}">
+					<Label Text="{haccpCtrl:Translate RecordItemSavePreview}" Style="{StaticResource WindowsTitleStyle}" />
+				</StackLayout>
+				<ScrollView Grid.Row="1">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="135" />
+							<RowDefinition Height="100" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="13" />
+							<ColumnDefinition />
+							<ColumnDefinition Width="13" />
+						</Grid.ColumnDefinitions>
+						<!--mimimum and maximum temperature readings-->
+						<StackLayout Grid.Row="0" Grid.Column="1" VerticalOptions="Start" Padding="0,10,0,0">
+							<Label Text="{Binding SelectedItem.Name}" HorizontalOptions="Center" Style="{StaticResource DeviceNameStyle}" />
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="2" />
+									<RowDefinition />
+									<RowDefinition Height="42" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<Image Source="valueBg.png" Grid.RowSpan="3" Grid.ColumnSpan="2" Aspect="Fill" />
+								<StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center">
+									<Label Text="{haccpCtrl:Translate Min}" Style="{StaticResource Golden16LabelStyle}" HorizontalOptions="End" LineBreakMode="NoWrap" />
+									<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="0,-10,0,0">
+										<Image Source="temperature.png" HeightRequest="33" />
+										<Label Text="{Binding MinimumTemperature}" Style="{StaticResource Blue24LabelStyle}" />
+									</StackLayout>
+								</StackLayout>
+								<StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center">
+									<Label Text="{haccpCtrl:Translate Max}" Style="{StaticResource Golden16LabelStyle}" HorizontalOptions="End" LineBreakMode="NoWrap" />
+									<StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="0,-10,0,0">
+										<Image Source="temperature.png" HeightRequest="33" />
+										<Label Text="{Binding MaximumTemperature}" Style="{StaticResource Blue24LabelStyle}" />
+									</StackLayout>
+								</StackLayout>
+							</Grid>
+						</StackLayout>
+						<Label Grid.Row="1" Grid.Column="1" Text="{Binding Temperature}" Style="{StaticResource White48LabelStyle}" VerticalOptions="End" HorizontalOptions="Center" LineBreakMode="NoWrap" />
+						<StackLayout Grid.Row="2" Grid.Column="1" VerticalOptions="Center">
+							<Grid Padding="0,0,0,5" HeightRequest="42">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="75" />
+								</Grid.ColumnDefinitions>
+								<Label Grid.Column="0" Text="{Binding CorrectiveActionText}" Style="{StaticResource WhiteXXWrap}" />
+								<Grid Grid.Column="1" HorizontalOptions="End">
+									<Image Source="editCA.png" HorizontalOptions="End" VerticalOptions="Center" />
+									<!--<Button x:Name="actionBtn" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" BorderColor="Transparent" Command="{Binding CorrectiveActionCommand}" />-->
+									<haccpCtrl:HACCPHomePageButton x:Name="actionBtn" RemoveBorderOnClick="True" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Transparent" Command="{Binding CorrectiveActionCommand}" />
+								</Grid>
+							</Grid>
+							<!--manual entry grid-->
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="25" />
+									<RowDefinition Height="75" />
+								</Grid.RowDefinitions>
+								<StackLayout Grid.Row="0" Orientation="Horizontal">
+									<Image Source="{Binding NoteIcon}" HeightRequest="22" WidthRequest="22" />
+									<Label Text="{haccpCtrl:Translate Enternotesabouttheitem}" TextColor="{Binding NoteHintColor}" Style="{StaticResource WhiteXX}" VerticalOptions="End" />
+								</StackLayout>
+								<haccpCtrl:HACCPEditor Grid.Row="1" Keyboard="Text" HeightRequest="80" x:Name="editorcontrol" IsEnabled="{Binding IsNoteEnable}" Text="{Binding NoteText,Mode=TwoWay}">
+									<haccpCtrl:HACCPEditor.Behaviors>
+										<haccpCtrl:EditorMaxLengthValidator MaxLength="1000" />
+									</haccpCtrl:HACCPEditor.Behaviors>
+								</haccpCtrl:HACCPEditor>
+							</Grid>
+						</StackLayout>
+						<Grid Grid.Row="3" Grid.Column="1" Padding="0,8,0,12">
+							<haccpCtrl:HACCPButton Text="{haccpCtrl:Translate Save}" Command="{Binding SaveCommand}" />
+						</Grid>
+						<!--corrective action popup-->
+						<Grid Grid.RowSpan="5" Grid.ColumnSpan="3" IsVisible="{Binding IsCorrectiveOptionsVisible}">
+							<Grid BackgroundColor="Black" Opacity="0.5" />
+							<Grid VerticalOptions="Center" HeightRequest="310" Padding="0,0,0,50">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="12" />
+									<ColumnDefinition />
+									<ColumnDefinition Width="12" />
+								</Grid.ColumnDefinitions>
+								<Frame Grid.Column="1" BackgroundColor="White">
+									<StackLayout Padding="0,10,0,10">
+										<Label HorizontalOptions="Center" Text="{haccpCtrl:Translate CorrectiveActions}" Style="{StaticResource AlertTitleStyle}" LineBreakMode="NoWrap" />
+										<Grid Padding="0,8,0,0">
+											<ListView x:Name="optionlist" ItemsSource="{Binding CorrectiveActions}" SelectedItem="{Binding SelectedCorrectiveAction,Mode=TwoWay}" SeparatorColor="Transparent" IsGroupingEnabled="False">
+												<ListView.ItemTemplate>
+													<DataTemplate>
+														<ViewCell StyleId="Corrective_Cell">
+															<StackLayout Padding="0,0,6,0">
+																<BoxView HeightRequest=".6" Color="#cfe0eb" />
+																<Grid Padding="6,6,6,0">
+																	<Label Text="{Binding CorrActionName}" Style="{StaticResource PopupOptionTextStyle}" VerticalOptions="Center" />
+																</Grid>
+															</StackLayout>
+														</ViewCell>
+													</DataTemplate>
+												</ListView.ItemTemplate>
+											</ListView>
+										</Grid>
+									</StackLayout>
+								</Frame>
+							</Grid>
+						</Grid>
+						<Grid Grid.Row="4" Style="{StaticResource WindowsScrollHelpGridStyle}" />
+					</Grid>
+				</ScrollView>
+				<haccpCtrl:HACCPProgressView Grid.RowSpan="2" IsVisible="{Binding IsProgressVisible}" />
+			</Grid>
+		</haccpCtrl:BaseLayout>
+	</haccpCtrl:BaseView.Content>
+</haccpCtrl:BaseView>

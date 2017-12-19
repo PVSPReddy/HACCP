@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{99CAA7BD-209B-43A2-A61D-433D7722D947}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HACCP.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>HACCPiOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchSdkVersion>10.1</MtouchSdkVersion>
+    <CodesignKey>iPhone Developer: Ted Falasco (GXBP6ABF93)</CodesignKey>
+    <OptimizePNGs>False</OptimizePNGs>
+    <PlatformTarget>x64</PlatformTarget>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution: Cooper-Atkins Corporation (K66GVXM578)</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <MtouchSdkVersion>10.1</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>False</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <CodesignKey>iPhone Distribution: Cooper-Atkins Corporation (K66GVXM578)</CodesignKey>
+    <MtouchSdkVersion>10.1</MtouchSdkVersion>
+    <MtouchDebug>False</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignKey>iPhone Developer: Ted Falasco (GXBP6ABF93)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <OptimizePNGs>false</OptimizePNGs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLite.Net">
+      <HintPath>..\packages\SQLite.Net.Core-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinIOS.Unified">
+      <HintPath>..\packages\SQLite.Net-PCL.3.1.1\lib\Xamarin.iOS10\SQLite.Net.Platform.XamarinIOS.Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape%402x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait%402x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\iPad-Retina-Landscape.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\Default-Landscape.png">
+      <DependentUpon>Contents.json</DependentUpon>
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\iPad-Retina-Portrait.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\app-icon_167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape_2208x1242.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait_1242x2208.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait_750x1334.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <InterfaceDefinition Include="NewLaunchScreen.storyboard" />
+    <None Include="packages.config" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-2.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Splash.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\HACCPButtonRenderer.cs" />
+    <Compile Include="Renderers\HACCPEntryRenderer.cs" />
+    <Compile Include="Network\NetworkConnection.cs" />
+    <Compile Include="DataHelper\SQLite_iOS.cs" />
+    <Compile Include="Renderers\HACCPListViewRenderer.cs" />
+    <Compile Include="Renderers\HACCPLineSpacingLabelRenderer.cs" />
+    <Compile Include="Renderers\HACCPShapeRenderer.cs" />
+    <Compile Include="Renderers\HACCPSearchRenderer.cs" />
+    <Compile Include="Renderers\HACCPTemperatureEntryRenderer.cs" />
+    <Compile Include="Renderers\HACCPEditorRenderer.cs" />
+    <Compile Include="Renderers\HACCPEditorBorderRenderer.cs" />
+    <Compile Include="Renderers\HACCPFrameRenderer.cs" />
+    <Compile Include="Localization\Locale_iOS.cs" />
+    <Compile Include="InfoService\InfoService.cs" />
+    <Compile Include="Renderers\HACCPProgressBarRenderer.cs" />
+    <Compile Include="BLE\Adapter.cs" />
+    <Compile Include="BLE\Device.cs" />
+    <Compile Include="BLE\Service.cs" />
+    <Compile Include="BLE\Characteristic.cs" />
+    <Compile Include="BLE\Descriptor.cs" />
+    <Compile Include="Renderers\HACCPBaseViewRenderer.cs" />
+    <Compile Include="Localization\ResourceFileHelper.cs" />
+    <Compile Include="Renderers\ExtendedButtonRenderer.cs" />
+    <Compile Include="Renderers\Extensions\AlignmentExtensions.cs" />
+    <Compile Include="Renderers\HACCPDefaultButtonRenderer.cs" />
+    <Compile Include="Renderers\HACCPHomePageButtonRenderer.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\HACCP.Core\HACCP.Core.csproj">
+      <Project>{2927A711-3DEC-432F-B07F-3B2CFC886076}</Project>
+      <Name>HACCP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HACCP\HACCP.csproj">
+      <Project>{AEF99839-C31A-4DB0-9D57-53095D8B1B6F}</Project>
+      <Name>HACCP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\add%402x.png" />
+    <BundleResource Include="Resources\add%403x.png" />
+    <BundleResource Include="Resources\addDisable.png" />
+    <BundleResource Include="Resources\addDisable%402x.png" />
+    <BundleResource Include="Resources\addDisable%403x.png" />
+    <BundleResource Include="Resources\ajax-loader.gif" />
+    <BundleResource Include="Resources\app-icon.png" />
+    <BundleResource Include="Resources\app-icon%402x.png" />
+    <BundleResource Include="Resources\battery.png" />
+    <BundleResource Include="Resources\battery25.png" />
+    <BundleResource Include="Resources\battery25%402x.png" />
+    <BundleResource Include="Resources\battery25%403x.png" />
+    <BundleResource Include="Resources\battery50.png" />
+    <BundleResource Include="Resources\battery50%402x.png" />
+    <BundleResource Include="Resources\battery50%403x.png" />
+    <BundleResource Include="Resources\battery75.png" />
+    <BundleResource Include="Resources\battery75%402x.png" />
+    <BundleResource Include="Resources\battery75%403x.png" />
+    <BundleResource Include="Resources\battery%402x.png" />
+    <BundleResource Include="Resources\battery%403x.png" />
+    <BundleResource Include="Resources\batteryEmpty.png" />
+    <BundleResource Include="Resources\batteryEmpty%402x.png" />
+    <BundleResource Include="Resources\batteryEmpty%403x.png" />
+    <BundleResource Include="Resources\batteryFull.png" />
+    <BundleResource Include="Resources\batteryFull%402x.png" />
+    <BundleResource Include="Resources\batteryFull%403x.png" />
+    <BundleResource Include="Resources\bg.png" />
+    <BundleResource Include="Resources\bg1024.png" />
+    <BundleResource Include="Resources\bg768.png" />
+    <BundleResource Include="Resources\bg%402x.png" />
+    <BundleResource Include="Resources\bg%403x.png" />
+    <BundleResource Include="Resources\blue.png" />
+    <BundleResource Include="Resources\blue%402x.png" />
+    <BundleResource Include="Resources\blue%402x~ipad.png" />
+    <BundleResource Include="Resources\blue%403x.png" />
+    <BundleResource Include="Resources\bluebtn.png" />
+    <BundleResource Include="Resources\bluebtn%402x.png" />
+    <BundleResource Include="Resources\bluebtn%403x.png" />
+    <BundleResource Include="Resources\bluecircle.png" />
+    <BundleResource Include="Resources\bluecircle%402x.png" />
+    <BundleResource Include="Resources\bluecircle%402x~ipad.png" />
+    <BundleResource Include="Resources\bluecircle%403x.png" />
+    <BundleResource Include="Resources\bluecircle~ipad.png" />
+    <BundleResource Include="Resources\bluetick.png" />
+    <BundleResource Include="Resources\bluetick%402x.png" />
+    <BundleResource Include="Resources\bluetick%403x.png" />
+    <BundleResource Include="Resources\bluetooth.png" />
+    <BundleResource Include="Resources\bluetooth%402x.png" />
+    <BundleResource Include="Resources\bluetooth%403x.png" />
+    <BundleResource Include="Resources\checklist.png" />
+    <BundleResource Include="Resources\checklist%402x.png" />
+    <BundleResource Include="Resources\checklist%403x.png" />
+    <BundleResource Include="Resources\checklistDisable.png" />
+    <BundleResource Include="Resources\checklistDisable%402x.png" />
+    <BundleResource Include="Resources\checklistDisable%403x.png" />
+    <BundleResource Include="Resources\clearcheckmark.png" />
+    <BundleResource Include="Resources\clearcheckmark%402x.png" />
+    <BundleResource Include="Resources\clearcheckmark%402x~ipad.png" />
+    <BundleResource Include="Resources\clearcheckmark%403x.png" />
+    <BundleResource Include="Resources\clearcheckmarkDisable.png" />
+    <BundleResource Include="Resources\clearcheckmarkDisable%402x.png" />
+    <BundleResource Include="Resources\clearcheckmarkDisable%402x~ipad.png" />
+    <BundleResource Include="Resources\clearcheckmarkDisable%403x.png" />
+    <BundleResource Include="Resources\completed.png" />
+    <BundleResource Include="Resources\completed%402x.png" />
+    <BundleResource Include="Resources\completed%403x.png" />
+    <BundleResource Include="Resources\connectionsettings.png" />
+    <BundleResource Include="Resources\connectionsettings%402x.png" />
+    <BundleResource Include="Resources\connectionsettings%402x~ipad.png" />
+    <BundleResource Include="Resources\connectionsettings%403x.png" />
+    <BundleResource Include="Resources\cooperlogo.png" />
+    <BundleResource Include="Resources\cooperlogo%402x.png" />
+    <BundleResource Include="Resources\cooperlogo%402x~ipad.png" />
+    <BundleResource Include="Resources\cooperlogo%403x.png" />
+    <BundleResource Include="Resources\deselect_radio.png" />
+    <BundleResource Include="Resources\deselect_radio%402x.png" />
+    <BundleResource Include="Resources\deselect_radio%403x.png" />
+    <BundleResource Include="Resources\edit.png" />
+    <BundleResource Include="Resources\edit%402x.png" />
+    <BundleResource Include="Resources\edit%403x.png" />
+    <BundleResource Include="Resources\editCA.png" />
+    <BundleResource Include="Resources\editCA%402x.png" />
+    <BundleResource Include="Resources\editCA%403x.png" />
+    <BundleResource Include="Resources\fault.png" />
+    <BundleResource Include="Resources\fault%402x.png" />
+    <BundleResource Include="Resources\fault%403x.png" />
+    <BundleResource Include="Resources\forward.png" />
+    <BundleResource Include="Resources\forward%402x.png" />
+    <BundleResource Include="Resources\forward%403x.png" />
+    <BundleResource Include="Resources\greencircle.png" />
+    <BundleResource Include="Resources\greencircle%402x.png" />
+    <BundleResource Include="Resources\greencircle%402x~ipad.png" />
+    <BundleResource Include="Resources\greencircle%403x.png" />
+    <BundleResource Include="Resources\greencircle~ipad.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\info.png" />
+    <BundleResource Include="Resources\info%402x.png" />
+    <BundleResource Include="Resources\info%403x.png" />
+    <BundleResource Include="Resources\ipadsplash.png" />
+    <BundleResource Include="Resources\language.png" />
+    <BundleResource Include="Resources\language%402x.png" />
+    <BundleResource Include="Resources\language%403x.png" />
+    <BundleResource Include="Resources\location.png" />
+    <BundleResource Include="Resources\location%402x.png" />
+    <BundleResource Include="Resources\location%402x~ipad.png" />
+    <BundleResource Include="Resources\location%403x.png" />
+    <BundleResource Include="Resources\locationDisable.png" />
+    <BundleResource Include="Resources\locationDisable%402x.png" />
+    <BundleResource Include="Resources\locationDisable%402x~ipad.png" />
+    <BundleResource Include="Resources\locationDisable%403x.png" />
+    <BundleResource Include="Resources\login.png" />
+    <BundleResource Include="Resources\login%402x.png" />
+    <BundleResource Include="Resources\login%403x.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\logo%403x.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\logout%402x.png" />
+    <BundleResource Include="Resources\logout%403x.png" />
+    <BundleResource Include="Resources\menu.png" />
+    <BundleResource Include="Resources\menu%402x.png" />
+    <BundleResource Include="Resources\menu%403x.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\minus%402x.png" />
+    <BundleResource Include="Resources\minus%403x.png" />
+    <BundleResource Include="Resources\minusDisable.png" />
+    <BundleResource Include="Resources\minusDisable%402x.png" />
+    <BundleResource Include="Resources\minusDisable%403x.png" />
+    <BundleResource Include="Resources\next.png" />
+    <BundleResource Include="Resources\next%402x.png" />
+    <BundleResource Include="Resources\next%403x.png" />
+    <BundleResource Include="Resources\nextDisable.png" />
+    <BundleResource Include="Resources\nextDisable%402x.png" />
+    <BundleResource Include="Resources\nextDisable%403x.png" />
+    <BundleResource Include="Resources\noteDisabled.png" />
+    <BundleResource Include="Resources\noteDisabled%402x.png" />
+    <BundleResource Include="Resources\noteDisabled%403x.png" />
+    <BundleResource Include="Resources\prev.png" />
+    <BundleResource Include="Resources\prev%402x.png" />
+    <BundleResource Include="Resources\prev%403x.png" />
+    <BundleResource Include="Resources\prevDisable.png" />
+    <BundleResource Include="Resources\prevDisable%402x.png" />
+    <BundleResource Include="Resources\prevDisable%403x.png" />
+    <BundleResource Include="Resources\record.png" />
+    <BundleResource Include="Resources\record%402x.png" />
+    <BundleResource Include="Resources\record%403x.png" />
+    <BundleResource Include="Resources\redcircle.png" />
+    <BundleResource Include="Resources\redcircle%402x.png" />
+    <BundleResource Include="Resources\redcircle%402x~ipad.png" />
+    <BundleResource Include="Resources\redcircle%403x.png" />
+    <BundleResource Include="Resources\redcircle~ipad.png" />
+    <BundleResource Include="Resources\refresh.png" />
+    <BundleResource Include="Resources\refresh%402x.png" />
+    <BundleResource Include="Resources\refresh%403x.png" />
+    <BundleResource Include="Resources\round.png" />
+    <BundleResource Include="Resources\round%402x.png" />
+    <BundleResource Include="Resources\round%403x.png" />
+    <BundleResource Include="Resources\search.png" />
+    <BundleResource Include="Resources\search%402x.png" />
+    <BundleResource Include="Resources\search%403x.png" />
+    <BundleResource Include="Resources\select.png" />
+    <BundleResource Include="Resources\select%402x.png" />
+    <BundleResource Include="Resources\select%403x.png" />
+    <BundleResource Include="Resources\selectchecklist.png" />
+    <BundleResource Include="Resources\selectchecklist%402x.png" />
+    <BundleResource Include="Resources\selectchecklist%403x.png" />
+    <BundleResource Include="Resources\selectmenu.png" />
+    <BundleResource Include="Resources\selectmenu%402x.png" />
+    <BundleResource Include="Resources\selectmenu%402x~ipad.png" />
+    <BundleResource Include="Resources\selectmenu%403x.png" />
+    <BundleResource Include="Resources\selectmenuDisable.png" />
+    <BundleResource Include="Resources\selectmenuDisable%402x.png" />
+    <BundleResource Include="Resources\selectmenuDisable%402x~ipad.png" />
+    <BundleResource Include="Resources\selectmenuDisable%403x.png" />
+    <BundleResource Include="Resources\selectuser.png" />
+    <BundleResource Include="Resources\selectuser%402x.png" />
+    <BundleResource Include="Resources\selectuser%402x~ipad.png" />
+    <BundleResource Include="Resources\selectuser%403x.png" />
+    <BundleResource Include="Resources\setting%402x.png" />
+    <BundleResource Include="Resources\setting%403x..png" />
+    <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\settings%402x.png" />
+    <BundleResource Include="Resources\settings%403x.png" />
+    <BundleResource Include="Resources\splash-portrait%402x.png" />
+    <BundleResource Include="Resources\statusicon.png" />
+    <BundleResource Include="Resources\statusicon%402x.png" />
+    <BundleResource Include="Resources\statusicon%403x.png" />
+    <BundleResource Include="Resources\temperature.png" />
+    <BundleResource Include="Resources\temperature%402x.png" />
+    <BundleResource Include="Resources\temperature%403x.png" />
+    <BundleResource Include="Resources\thermometer.png" />
+    <BundleResource Include="Resources\thermometer%402x.png" />
+    <BundleResource Include="Resources\thermometer%402x~ipad.png" />
+    <BundleResource Include="Resources\thermometer%403x.png" />
+    <BundleResource Include="Resources\thumbDown.png" />
+    <BundleResource Include="Resources\thumbDown%402x.png" />
+    <BundleResource Include="Resources\thumbDown%403x.png" />
+    <BundleResource Include="Resources\thumbUp.png" />
+    <BundleResource Include="Resources\thumbUp%402x.png" />
+    <BundleResource Include="Resources\thumbUp%403x.png" />
+    <BundleResource Include="Resources\tick.png" />
+    <BundleResource Include="Resources\tick%402x.png" />
+    <BundleResource Include="Resources\tick%403x.png" />
+    <BundleResource Include="Resources\toggle.png" />
+    <BundleResource Include="Resources\toggle%402x.png" />
+    <BundleResource Include="Resources\toggle%403x.png" />
+    <BundleResource Include="Resources\updatesite.png" />
+    <BundleResource Include="Resources\updatesite%402x.png" />
+    <BundleResource Include="Resources\updatesite%402x~ipad.png" />
+    <BundleResource Include="Resources\updatesite%403x.png" />
+    <BundleResource Include="Resources\updateuserlist.png" />
+    <BundleResource Include="Resources\updateuserlist%402x.png" />
+    <BundleResource Include="Resources\updateuserlist%402x~ipad.png" />
+    <BundleResource Include="Resources\updateuserlist%403x.png" />
+    <BundleResource Include="Resources\uploadrecords.png" />
+    <BundleResource Include="Resources\uploadrecords%402x.png" />
+    <BundleResource Include="Resources\uploadrecords%402x~ipad.png" />
+    <BundleResource Include="Resources\uploadrecords%403x.png" />
+    <BundleResource Include="Resources\valueBg.png" />
+    <BundleResource Include="Resources\valueBg%402x.png" />
+    <BundleResource Include="Resources\valueBg%402x~ipad.png" />
+    <BundleResource Include="Resources\valueBg%403x.png" />
+    <BundleResource Include="Resources\viewstatus.png" />
+    <BundleResource Include="Resources\viewstatus%402x.png" />
+    <BundleResource Include="Resources\viewstatus%402x~ipad.png" />
+    <BundleResource Include="Resources\viewstatus%403x.png" />
+    <BundleResource Include="Resources\wakeup.png" />
+    <BundleResource Include="Resources\wakeup%402x.png" />
+    <BundleResource Include="Resources\wakeup%403x.png" />
+    <BundleResource Include="Resources\wirelesstask.png" />
+    <BundleResource Include="Resources\wirelesstask%402x.png" />
+    <BundleResource Include="Resources\wirelesstask%402x~ipad.png" />
+    <BundleResource Include="Resources\wirelesstask%403x.png" />
+    <BundleResource Include="Resources\yellowBtn.png" />
+    <BundleResource Include="Resources\yellowBtn%402x.png" />
+    <BundleResource Include="Resources\yellowBtn%403x.png" />
+    <BundleResource Include="Resources\yellowBtnDeselect.png" />
+    <BundleResource Include="Resources\yellowBtnDeselect%402x.png" />
+    <BundleResource Include="Resources\yellowBtnDeselect%403x.png" />
+    <BundleResource Include="Resources\yellowBtnTherm.png" />
+    <BundleResource Include="Resources\yellowBtnTherm%402x.png" />
+    <BundleResource Include="Resources\yellowBtnTherm%403x.png" />
+    <BundleResource Include="Resources\yellowBtnThermDes.png" />
+    <BundleResource Include="Resources\yellowBtnThermDes%402x.png" />
+    <BundleResource Include="Resources\yellowBtnThermDes%403x.png" />
+    <BundleResource Include="Resources\checklist%402x~ipad.png" />
+    <BundleResource Include="Resources\checklistDisable%402x~ipad.png" />
+    <BundleResource Include="Resources\cooperlogobig.png" />
+    <BundleResource Include="Resources\cooperlogobig%402x.png" />
+    <BundleResource Include="Resources\cooperlogobig%402x~ipad.png" />
+    <BundleResource Include="Resources\cooperlogobig%403x.png" />
+    <BundleResource Include="Resources\plain_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\app-icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="None" ResourceNamePolicy="MSBuild" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\app-icon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\app-icon_167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons-1.appiconset\Icon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-2.launchimage\Default-568h%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-2.launchimage\Default.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-2.launchimage\Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\Default-Landscape.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\iPad-Retina-Landscape.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\iPad-Retina-Portrait.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape%402x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape_2208x1242.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-landscape~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait%402x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait_1242x2208.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait_750x1334.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash-portrait~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-3.launchimage\splash%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\app-icon_167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-landscape%402x~ipad 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-landscape_2208x1242.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-portrait_1242x2208.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-portrait_750x1334.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="tick%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="tick%403x.png" />
+  </ItemGroup>
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
+</Project>
